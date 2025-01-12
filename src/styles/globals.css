@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Colors (Light Mode) */
+:root {
+  --bg-color: #FEFAE0;
+  --text-color: #000000;
+  --primary-color: #E9EDC9; /* Blue */
+  --secondary-color: #FAEDCD; /* Purple */
+  --border-color: #b08968; /* Light Gray */
+}
+
+/* Dark Mode Colors */
+:root.dark {
+  --bg-color: #582630; /* Dark Gray */
+  --text-color: #ffffff;
+  --primary-color: #A54657; /* Lighter Blue */
+  --secondary-color: #99582A; /* Lighter Purple */
+  --border-color: #432818; /* Darker Gray */
+}
+
+@layer components {
+  .contact-form {
+    @apply fixed inset-0 z-50 flex items-center justify-center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact-form.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .form-card {
+    @apply w-full max-w-md p-6 rounded-lg shadow-xl transform transition-transform duration-500;
+    transform: translateY(100%);
+  }
+
+  .form-card.active {
+    transform: translateY(0);
+  }
+
+  .form-input {
+    @apply w-full p-2 rounded border bg-white dark:bg-gray-700 
+    border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 
+    focus:border-transparent transition-colors duration-200;
+  }
+
+  .nav-mobile {
+    @apply fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 
+    border-t border-gray-200 dark:border-gray-700 transition-transform duration-300;
+  }
+
+  .split-background {
+    @apply absolute inset-0 flex animate-split-enter;
+  }
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme transition */
+.theme-transition {
+  @apply transition-colors duration-300;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Light theme scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Dark theme scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border: 3px solid #2d3748;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #718096;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
