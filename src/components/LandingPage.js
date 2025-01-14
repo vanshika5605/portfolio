@@ -5,16 +5,21 @@ import Education from "./Education";
 import Experience from "./Experience";
 import Interests from "./Interests";
 import Navbar from "./Navbar";
+import Skills from "./Skills";
 
 const LandingPage = () => {
   const [theme, setTheme] = useState("light");
   const [isLargeScreen, setIsLargeScreen] = useState(true);
-  const [activeSection, setActiveSection] = useState(""); // Changed to empty string initially
+  const [activeSection, setActiveSection] = useState("");
 
   // Refs for sections
-  const aboutRef = useRef(null);
+  const interestsRef = useRef(null);
+  const skillsRef = useRef(null);
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
+  const projectsRef = useRef(null);
+  const positionsOfResponsibilityRef = useRef(null);
+  const certificationsRef = useRef(null);
   const contactRef = useRef(null);
 
   useEffect(() => {
@@ -35,13 +40,13 @@ const LandingPage = () => {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  // Separate useEffect for scroll handling
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
 
       const sections = {
-        about: aboutRef.current?.offsetTop,
+        interests: interestsRef.current?.offsetTop,
+        skills: skillsRef.current?.offsetTop,
         experience: experienceRef.current?.offsetTop,
         education: educationRef.current?.offsetTop,
         contact: contactRef.current?.offsetTop,
@@ -77,47 +82,65 @@ const LandingPage = () => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-4 py-16">
-          {/* Animation positioned on top of the split */}
-          <div className="absolute left-1/4 transform -translate-x-1/2 top-1/4 w-64 h-64">
-            {isLargeScreen && (
+        <div className="relative z-10 container mx-auto px-4 py-2">
+          {/* Animation - Only visible on large screens */}
+          {isLargeScreen && (
+            <div className="absolute left-1/4 transform -translate-x-1/2 top-1/4 w-80 h-80">
               <DotLottieReact
                 src="https://lottie.host/d06ccf19-96dd-411a-aad0-f12d2d683e06/10sJ6f4hbw.lottie"
                 loop
                 autoplay
               />
-            )}
-          </div>
+            </div>
+          )}
+          
           <div className="md:w-2/3 md:ml-auto">
             <Navbar
               isLargeScreen={isLargeScreen}
               activeSection={activeSection}
-              aboutRef={aboutRef}
+              interestsRef={interestsRef}
+              skillsRef={skillsRef}
               experienceRef={experienceRef}
               educationRef={educationRef}
+              projectsRef={projectsRef}
               contactRef={contactRef}
               theme={theme}
               setTheme={setTheme}
-            ></Navbar>
-            {/* Text Content */}
+            />
 
-            <div className="grid md:grid-cols-2 gap-8 items-center min-h-[calc(100vh-8rem)]">
-              <div className="md:col-start-2 text-center md:text-left fade-in">
-                <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4 hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-                  Welcome
+            {/* Text Content */}
+            <div className="grid md:grid-cols-4 items-center min-h-[calc(100vh-8rem)]">
+            <div className="md:col-span-1">
+              </div>
+              <div className="md:col-span-3 text-center md:text-left fade-in space-y-6">
+                {/* Optional Profile Picture */}
+                <div className="mb-6 flex justify-center md:justify-start">
+                  <img
+                    src="profile-2.jpg"
+                    alt="Vanshika Agrawal"
+                    className="rounded-full w-32 h-32 object-cover shadow-lg hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:text-blue-500 transition-colors duration-300">
+                  Hi, I'm Vanshika Agrawal
                 </h1>
-                <p className="text-xl md:text-2xl">
-                  Bringing ideas to life through code
+                
+                <p className="text-sm md:text-base leading-relaxed">
+                A full-stack software developer passionate about crafting clean, efficient solutions to complex problems. I specialize in modern web technologies and thrive on turning innovative ideas into scalable applications.
                 </p>
+                
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Interests aboutRef={aboutRef}></Interests>
-      <Experience experienceRef={experienceRef}></Experience>
-      <Education educationRef={educationRef}></Education>
-      <Contact contactRef={contactRef}></Contact>
+      
+      <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen}/>
+      <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
+      <Experience experienceRef={experienceRef} />
+      <Education educationRef={educationRef} />
+      <Contact contactRef={contactRef} />
     </div>
   );
 };

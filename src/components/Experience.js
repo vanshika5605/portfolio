@@ -5,9 +5,10 @@ const Experience = ({experienceRef}) => {
         className="min-h-screen bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-8 hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-            Experience
-          </h2>
+        <h2 className="text-3xl font-bold mb-12 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
+      Experience
+        <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
+      </h2>  
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">

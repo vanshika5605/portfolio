@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BookOpen, Briefcase, Mail, Moon, Sun, User } from "lucide-react";
 
-const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, aboutRef, contactRef, theme, setTheme}) => {
+const Navbar = ({activeSection, isLargeScreen, skillsRef, educationRef, experienceRef, projectsRef, interestsRef, contactRef, theme, setTheme}) => {
 
     const scrollToSection = (ref) => {
         if (ref.current) {
@@ -26,20 +26,16 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
         className={`
   ${
     isLargeScreen
-      ? "fixed top-0 left-0 right-0 z-50 theme-transition mb-16"
+      ? "fixed top-0 left-0 right-0 z-50 theme-transition"
       : "fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 theme-transition shadow-lg"
   }
   theme-transition
 `}
       >
         <div className="flex justify-end items-center h-16">
-          {/* <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 theme-transition shadow-lg">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16"> */}
-          {/* Mobile Navigation */}
           <div className="flex md:hidden justify-around w-full">
             <button
-              onClick={() => scrollToSection(aboutRef)}
+              onClick={() => scrollToSection(interestsRef)}
               className={`p-2 transition-colors duration-200 ${
                 activeSection === "about" ? "text-blue-500" : ""
               }`}
@@ -82,12 +78,20 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection(aboutRef)}
+              onClick={() => scrollToSection(interestsRef)}
               className={`hover:text-blue-500 transition-colors duration-200 ${
                 activeSection === "about" ? "text-blue-500" : ""
               }`}
             >
-              About
+              interests
+            </button>
+            <button
+              onClick={() => scrollToSection(skillsRef)}
+              className={`hover:text-blue-500 transition-colors duration-200 ${
+                activeSection === "about" ? "text-blue-500" : ""
+              }`}
+            >
+              skills
             </button>
             <button
               onClick={() => scrollToSection(experienceRef)}
@@ -95,7 +99,7 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
                 activeSection === "experience" ? "text-blue-500" : ""
               }`}
             >
-              Experience
+              experience
             </button>
             <button
               onClick={() => scrollToSection(educationRef)}
@@ -103,7 +107,7 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
                 activeSection === "education" ? "text-blue-500" : ""
               }`}
             >
-              Education
+              education
             </button>
             <button
               onClick={() => scrollToSection(contactRef)}
@@ -111,7 +115,7 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
                 activeSection === "contact" ? "text-blue-500" : ""
               }`}
             >
-              Contact
+              contact
             </button>
             <button
               onClick={toggleTheme}
@@ -125,7 +129,6 @@ const Navbar = ({activeSection, isLargeScreen, educationRef, experienceRef, abou
             </button>
           </div>
         </div>
-        {/* </div> */}
       </nav></>
     )
 };
