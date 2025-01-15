@@ -1,53 +1,9 @@
 import React, { useState } from "react";
 import { Award, Calendar, MapPin, BookOpen, GraduationCap } from "lucide-react";
+import education from "../data/education.json";
 
 const Education = ({ educationRef, isLargeScreen }) => {
   const [activeFrame, setActiveFrame] = useState(null);
-
-  const education = [
-    {
-      id: "masters",
-      type: "Graduate",
-      degree: "Master of Science in Computer Science",
-      institution: "University of Massachusetts Amherst",
-      location: "Amherst, Massachusetts",
-      date: "Expected: May 2026",
-      status: "current",
-      color: "blue",
-      courses: [
-        "Advanced Algorithms",
-        "Systems for Data Science",
-        "Theory of Software Engineering",
-      ],
-    },
-    {
-      id: "bachelors",
-      type: "Undergraduate",
-      degree: "Bachelor of Technology in Computer Science and Engineering",
-      institution: "Maulana Azad National Institute of Technology",
-      location: "Bhopal, India",
-      date: "Jul 2018 – May 2022",
-      color: "purple",
-      achievements: ["CGPA: 9.23/10", "Rank: 2/210"],
-      courses: [
-        "Data Structures",
-        "DBMS",
-        "Operating System",
-        "Machine Learning",
-        "Natural Language Processing",
-        "Network Security",
-      ],
-    },
-    {
-      id: "highschool",
-      type: "High School",
-      degree: "High School Diploma",
-      institution: "Billabong High International",
-      location: "India",
-      color: "green",
-      date: "2018",
-    },
-  ];
 
   return (
     <section

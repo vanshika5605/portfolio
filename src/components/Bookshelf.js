@@ -1,5 +1,6 @@
 import { Calendar, Code } from "lucide-react";
 import React, { useState } from "react";
+import skillShelves from "../data/skills.json";
 
 const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
   const [activeBook, setActiveBook] = useState(null);
@@ -8,62 +9,6 @@ const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
   React.useEffect(() => {
     setIsTouchDevice("ontouchstart" in window);
   }, []);
-
-  const skillShelves = [
-    {
-      name: "Languages & Core",
-      color: "#2563eb",
-      skills: [
-        { name: "Java", proficiency: 90, years: "5 years", projects: 12 },
-        { name: "JavaScript", proficiency: 85, years: "4 years", projects: 15 },
-        { name: "C++", proficiency: 80, years: "3 years", projects: 6 },
-        { name: "Python", proficiency: 85, years: "4 years", projects: 8 },
-        { name: "HTML", proficiency: 90, years: "5 years", projects: 20 },
-        { name: "CSS/SASS", proficiency: 90, years: "5 years", projects: 20 },
-        { name: "JavaScript", proficiency: 90, years: "5 years", projects: 20 },
-        { name: "SQL", proficiency: 90, years: "5 years", projects: 20 },
-      ],
-    },
-    {
-      name: "Frameworks/Technologies",
-      color: "#059669",
-      skills: [
-        { name: "SpringBoot", proficiency: 85, years: "4 years", projects: 10 },
-        { name: "React.js", proficiency: 85, years: "3 years", projects: 12 },
-        { name: "Django", proficiency: 80, years: "3 years", projects: 7 },
-        { name: "Bootstrap", proficiency: 90, years: "4 years", projects: 15 },
-        { name: "WebSocket", proficiency: 85, years: "3 years", projects: 12 },
-        { name: "ActiveMQ", proficiency: 85, years: "3 years", projects: 12 },
-        { name: "Apache Spark", proficiency: 85, years: "3 years", projects: 12 },
-        { name: "Wijmo", proficiency: 85, years: "3 years", projects: 12 },
-      ],
-    },
-    {
-      name: "DB & Tools",
-      color: "#7c3aed",
-      skills: [
-        { name: "Oracle", proficiency: 85, years: "4 years", projects: 8 },
-        { name: "MongoDB", proficiency: 80, years: "3 years", projects: 6 },
-        { name: "Neo4j", proficiency: 75, years: "2 years", projects: 4 },
-        { name: "Git", proficiency: 90, years: "5 years", projects: 25 },
-        { name: "GitHub", proficiency: 90, years: "5 years", projects: 25 },
-        { name: "Bitbucket", proficiency: 90, years: "5 years", projects: 25 },
-        { name: "Jira", proficiency: 90, years: "5 years", projects: 25 },
-        { name: "JUnit", proficiency: 90, years: "5 years", projects: 25 },
-        { name: "Jest", proficiency: 90, years: "5 years", projects: 25 },
-      ],
-    },
-    {
-      name: "Concepts",
-      color: "pink",
-      skills: [
-        { name: "Microservices", proficiency: 85, years: "4 years", projects: 8 },
-        { name: "SDLC", proficiency: 80, years: "3 years", projects: 6 },
-        { name: "Agile Methods", proficiency: 75, years: "2 years", projects: 4 },
-        { name: "UI Design", proficiency: 90, years: "5 years", projects: 25 },
-     ],
-    },
-  ];
 
   const handleBookInteraction = (shelfName, skillName) => {
     if (isTouchDevice) {

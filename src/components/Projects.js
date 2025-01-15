@@ -1,86 +1,10 @@
 import React, { useState } from "react";
 import ProjectModal from "./ProjectModal";
+import projects from "../data/projects.json";
 
 const Projects = ({ projectsRef }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack online shopping platform",
-      fullDescription:
-        "A comprehensive e-commerce solution built with the MERN stack, featuring real-time inventory management, secure payment processing, and advanced search capabilities.",
-      image: "/api/placeholder/300/200",
-      tech: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe"],
-      features: [
-        "User authentication and authorization",
-        "Real-time inventory tracking",
-        "Secure payment processing with Stripe",
-        "Advanced product search and filtering",
-        "Order management system",
-        "Admin dashboard with analytics",
-      ],
-      link: "https://project-link.com",
-    },
-    {
-      title: "Task Management App",
-      description: "Real-time task collaboration tool",
-      fullDescription:
-        "A collaborative task management application that enables teams to organize, track, and complete projects efficiently with real-time updates and notifications.",
-      image: "/api/placeholder/300/200",
-      tech: ["Vue.js", "Firebase", "Tailwind", "WebSocket", "Cloud Functions"],
-      features: [
-        "Real-time collaboration",
-        "Task dependencies tracking",
-        "Team chat and comments",
-        "File attachments",
-        "Progress tracking",
-        "Due date notifications",
-      ],
-      link: "https://project-link.com",
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Live weather tracking dashboard",
-      fullDescription:
-        "An interactive weather monitoring dashboard that provides real-time weather data, historical trends, and forecast predictions using multiple weather APIs.",
-      image: "/api/placeholder/300/200",
-      tech: [
-        "React",
-        "D3.js",
-        "OpenWeather API",
-        "Chart.js",
-        "GeoLocation API",
-      ],
-      features: [
-        "Real-time weather updates",
-        "Interactive weather maps",
-        "7-day forecast",
-        "Historical weather data",
-        "Location-based alerts",
-        "Customizable dashboard",
-      ],
-      link: "https://project-link.com",
-    },
-    {
-      title: "Social Media Analytics",
-      description: "Social metrics dashboard",
-      fullDescription:
-        "A comprehensive analytics platform for tracking and analyzing social media performance across multiple platforms with customizable reporting features.",
-      image: "/api/placeholder/300/200",
-      tech: ["Angular", "Python", "PostgreSQL", "Redis", "Docker"],
-      features: [
-        "Multi-platform integration",
-        "Automated report generation",
-        "Sentiment analysis",
-        "Engagement tracking",
-        "Competitor analysis",
-        "Custom metric creation",
-      ],
-      link: "https://project-link.com",
-    },
-  ];
 
   // Generate random rotation between -20 and 20 degrees
   const getRandomRotation = () => Math.random() * 40 - 20;
@@ -141,7 +65,7 @@ const Projects = ({ projectsRef }) => {
                     onClick={() => setSelectedProject(project)}
                   >
                     {/* Project Image */}
-                    <div className="relative h-40 bg-gray-100 mb-3 overflow-hidden">
+                    <div className="relative h-50 bg-gray-100 mb-3 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
