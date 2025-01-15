@@ -6,6 +6,7 @@ import Experience from "./Experience";
 import Interests from "./Interests";
 import Navbar from "./Navbar";
 import Skills from "./Skills";
+import Projects from "./Projects";
 
 const LandingPage = () => {
   const [theme, setTheme] = useState("light");
@@ -47,8 +48,9 @@ const LandingPage = () => {
       const sections = {
         interests: interestsRef.current?.offsetTop,
         skills: skillsRef.current?.offsetTop,
-        experience: experienceRef.current?.offsetTop,
         education: educationRef.current?.offsetTop,
+        experience: experienceRef.current?.offsetTop,
+        projects: projectsRef.current?.offsetTop,
         contact: contactRef.current?.offsetTop,
       };
 
@@ -138,8 +140,9 @@ const LandingPage = () => {
       
       <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen}/>
       <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
-      <Experience experienceRef={experienceRef} />
       <Education educationRef={educationRef} />
+      <Experience experienceRef={experienceRef} />
+      <Projects projectsRef={projectsRef}></Projects>
       <Contact contactRef={contactRef} />
     </div>
   );

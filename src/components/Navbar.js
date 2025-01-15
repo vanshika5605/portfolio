@@ -1,28 +1,48 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BookOpen, Briefcase, Mail, Moon, Sun, User } from "lucide-react";
+import {
+  BookOpen,
+  Briefcase,
+  FolderDot,
+  Lightbulb,
+  Mail,
+  MessageCircleHeart,
+  Moon,
+  Sun,
+} from "lucide-react";
+import React from "react";
 
-const Navbar = ({activeSection, isLargeScreen, skillsRef, educationRef, experienceRef, projectsRef, interestsRef, contactRef, theme, setTheme}) => {
+const Navbar = ({
+  activeSection,
+  isLargeScreen,
+  skillsRef,
+  educationRef,
+  experienceRef,
+  projectsRef,
+  interestsRef,
+  contactRef,
+  theme,
+  setTheme,
+}) => {
+  const scrollToSection = (ref) => {
+    if (ref.current) {
+      const yOffset = -80; // Adjust this value based on your navbar height
+      const element = ref.current;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    const scrollToSection = (ref) => {
-        if (ref.current) {
-          const yOffset = -80; // Adjust this value based on your navbar height
-          const element = ref.current;
-          const y =
-            element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-          window.scrollTo({
-            top: y,
-            behavior: "smooth",
-          });
-        }
-      };
-    
-      const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-      };
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
 
-    return (
-        <><nav
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <>
+      <nav
         className={`
   ${
     isLargeScreen
@@ -37,31 +57,47 @@ const Navbar = ({activeSection, isLargeScreen, skillsRef, educationRef, experien
             <button
               onClick={() => scrollToSection(interestsRef)}
               className={`p-2 transition-colors duration-200 ${
-                activeSection === "about" ? "text-blue-500" : ""
+                activeSection === "interests" ? "font-bold" : ""
               }`}
             >
-              <User className="w-6 h-6" />
+              <MessageCircleHeart className="w-6 h-6" />
             </button>
             <button
-              onClick={() => scrollToSection(experienceRef)}
+              onClick={() => scrollToSection(skillsRef)}
               className={`p-2 transition-colors duration-200 ${
-                activeSection === "experience" ? "text-blue-500" : ""
+                activeSection === "skills" ? "font-bold" : ""
               }`}
             >
-              <Briefcase className="w-6 h-6" />
+              <Lightbulb className="w-6 h-6" />
             </button>
             <button
               onClick={() => scrollToSection(educationRef)}
               className={`p-2 transition-colors duration-200 ${
-                activeSection === "education" ? "text-blue-500" : ""
+                activeSection === "education" ? "font-bold" : ""
               }`}
             >
               <BookOpen className="w-6 h-6" />
             </button>
             <button
+              onClick={() => scrollToSection(experienceRef)}
+              className={`p-2 transition-colors duration-200 ${
+                activeSection === "experience" ? "font-bold" : ""
+              }`}
+            >
+              <Briefcase className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => scrollToSection(projectsRef)}
+              className={`p-2 transition-colors duration-200 ${
+                activeSection === "projects" ? "font-bold" : ""
+              }`}
+            >
+              <FolderDot className="w-6 h-6" />
+            </button>
+            <button
               onClick={() => scrollToSection(contactRef)}
               className={`p-2 transition-colors duration-200 ${
-                activeSection === "contact" ? "text-blue-500" : ""
+                activeSection === "contact" ? "font-bold" : ""
               }`}
             >
               <Mail className="w-6 h-6" />
@@ -79,40 +115,48 @@ const Navbar = ({activeSection, isLargeScreen, skillsRef, educationRef, experien
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection(interestsRef)}
-              className={`hover:text-blue-500 transition-colors duration-200 ${
-                activeSection === "about" ? "text-blue-500" : ""
-              }`}
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "interests" ? "font-bold" : ""
+              }`} 
             >
               interests
             </button>
             <button
               onClick={() => scrollToSection(skillsRef)}
-              className={`hover:text-blue-500 transition-colors duration-200 ${
-                activeSection === "about" ? "text-blue-500" : ""
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "skills" ? "font-bold" : ""
               }`}
             >
               skills
             </button>
             <button
-              onClick={() => scrollToSection(experienceRef)}
-              className={`hover:text-blue-500 transition-colors duration-200 ${
-                activeSection === "experience" ? "text-blue-500" : ""
-              }`}
-            >
-              experience
-            </button>
-            <button
               onClick={() => scrollToSection(educationRef)}
-              className={`hover:text-blue-500 transition-colors duration-200 ${
-                activeSection === "education" ? "text-blue-500" : ""
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "education" ? "font-bold" : ""
               }`}
             >
               education
             </button>
             <button
+              onClick={() => scrollToSection(experienceRef)}
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "experience" ? "font-bold" : ""
+              }`}
+            >
+              experience
+            </button>
+            <button
+              onClick={() => scrollToSection(projectsRef)}
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "projects" ? "font-bold" : ""
+              }`}
+            >
+              projects
+            </button>
+            <button
               onClick={() => scrollToSection(contactRef)}
-              className={`hover:text-blue-500 transition-colors duration-200 ${
-                activeSection === "contact" ? "text-blue-500" : ""
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "contact" ? "font-bold" : ""
               }`}
             >
               contact
@@ -129,8 +173,9 @@ const Navbar = ({activeSection, isLargeScreen, skillsRef, educationRef, experien
             </button>
           </div>
         </div>
-      </nav></>
-    )
+      </nav>
+    </>
+  );
 };
 
 export default Navbar;
