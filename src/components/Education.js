@@ -39,36 +39,42 @@ const Education = ({ educationRef, isLargeScreen }) => {
       className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition"
     >
       <div>
-        <div className="relative bg-[#e8d1c0] p-12 rounded-lg shadow-inner text-lightText dark:text-darkText">
-          <div
-            className="absolute inset-0 rounded-lg opacity-90"
-            style={{
-              backgroundImage: `
-                linear-gradient(335deg, #b8997a 23px, transparent 23px),
-                linear-gradient(155deg, #b8997a 23px, transparent 23px),
-                linear-gradient(335deg, #b8997a 23px, transparent 23px),
-                linear-gradient(155deg, #b8997a 23px, transparent 23px)
-              `,
-              backgroundSize: "58px 58px",
-              backgroundPosition: "0px 2px, 4px 35px, 29px 31px, 34px 6px",
-              backgroundColor: "#d4b595",
-            }}
-          />
+        <div className="relative bg-[#e8d1c0] dark:bg-[#3d2b1f] p-12 rounded-lg shadow-inner text-lightText dark:text-darkText">
+        <div
+          className="absolute inset-0 rounded-lg opacity-90"
+          style={{
+            backgroundImage: `
+              linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
+              linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px),
+              linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
+              linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px)
+            `,
+            backgroundSize: "58px 58px",
+            backgroundPosition: "0px 2px, 4px 35px, 29px 31px, 34px 6px",
+            backgroundColor: "var(--bg-color)",
+            "--pattern-color": "var(--tw-prose-pre-bg, #b8997a)",
+            "--bg-color": "var(--tw-prose-pre-bg, #d4b595)"
+          }}
+        />
 
-          <div
-            className="absolute inset-0 rounded-lg opacity-20"
-            style={{
-              backgroundImage: `
-                linear-gradient(#000 1px, transparent 1px),
-                linear-gradient(90deg, #000 1px, transparent 1px)
-              `,
-              backgroundSize: "29px 15px",
-            }}
-          />
-          <h2 className="text-3xl font-bold mb-12 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-            Academic Journey
-            <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
-          </h2>
+        <div
+          className="absolute inset-0 rounded-lg opacity-20 dark:opacity-30"
+          style={{
+            backgroundImage: `
+              linear-gradient(var(--grid-color) 1px, transparent 1px),
+              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)
+            `,
+            backgroundSize: "29px 15px",
+            "--grid-color": "var(--tw-prose-pre-bg, #000)"
+          }}
+        />
+          
+          <div className="relative z-20">
+            <h2 className="text-3xl font-bold mb-12 text-center transition-all duration-300 hover:scale-105 hover:text-blue-500">
+              Academic Journey
+              <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {education.map((edu, index) => (
@@ -79,89 +85,69 @@ const Education = ({ educationRef, isLargeScreen }) => {
                 <div className="absolute left-1/2 -top-6 w-3 h-1 bg-gray-600 -translate-x-1/2" />
 
                 <div
-                  className={`relative bg-[#f5e6d3] p-4 rounded-lg transition-all duration-300
-                  ${
-                    activeFrame === edu.id
-                      ? "scale-102 z-20"
-                      : "hover:scale-101"
-                  }
-                  cursor-pointer shadow-xl border-8 border-[#8B4513]`}
-                  onClick={() =>
-                    setActiveFrame(activeFrame === edu.id ? null : edu.id)
-                  }
+                  className={`relative bg-[#f5e6d3] dark:bg-[#2a1f1a] p-4 rounded-lg transition-all duration-500
+                    ${activeFrame === edu.id ? "scale-105" : "hover:scale-102"}
+                    cursor-pointer shadow-xl border-8 border-[#8B4513] dark:border-[#523124]
+                    before:content-[''] before:absolute before:top-0 before:left-2 before:right-2 before:h-2 
+                    before:bg-[#d4b595] dark:before:bg-[#3d2b1f] before:rounded-t-lg
+                    after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-2 
+                    after:bg-[#d4b595] dark:after:bg-[#3d2b1f] after:rounded-b-lg`}
+                  onClick={() => setActiveFrame(activeFrame === edu.id ? null : edu.id)}
                   style={{
                     boxShadow: "inset 0 0 20px rgba(0,0,0,0.2)",
                     minHeight: "320px",
+                    transform: `rotate${activeFrame === edu.id ? "X(0deg)" : "X(5deg)"}`,
+                    transformOrigin: "top",
                   }}
                 >
-                  <div className="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-[#A0522D] rounded-tl-lg" />
-                  <div className="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-[#A0522D] rounded-tr-lg" />
-                  <div className="absolute bottom-2 left-2 w-6 h-6 border-b-4 border-l-4 border-[#A0522D] rounded-bl-lg" />
-                  <div className="absolute bottom-2 right-2 w-6 h-6 border-b-4 border-r-4 border-[#A0522D] rounded-br-lg" />
+                  <div className="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-tl-lg" />
+                  <div className="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-[#A0522D] dark:border-[#614434] rounded-tr-lg" />
+                  <div className="absolute bottom-2 left-2 w-6 h-6 border-b-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-bl-lg" />
+                  <div className="absolute bottom-2 right-2 w-6 h-6 border-b-4 border-r-4 border-[#A0522D] dark:border-[#614434] rounded-br-lg" />
 
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-transparent opacity-30 rounded-lg pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-transparent dark:from-gray-800 opacity-30 rounded-lg pointer-events-none" />
 
                   <div className="relative">
                     <div className="text-center mb-2">
                       <div className="flex justify-center mb-2">
-                        <GraduationCap className="w-8 h-8 text-[#8B4513]" />
+                        <GraduationCap className="w-8 h-8 text-[#8B4513] dark:text-[#b8997a]" />
                       </div>
-                      <span className="text-xs font-medium text-[#8B4513]">
+                      <span className="text-xs font-medium text-[#8B4513] dark:text-[#b8997a]">
                         {edu.type}
                       </span>
 
-                      {/* Scroll-like degree section with hover animation */}
-                      <div
-                        className="relative mt-1 mb-2 py-2 px-4 bg-[#f8ece0] rounded-lg group cursor-pointer
-                                    before:content-[''] before:absolute before:top-0 before:left-2 before:right-2 before:h-2 before:bg-[#d4b595] before:rounded-t-lg
-                                    after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-2 after:bg-[#d4b595] after:rounded-b-lg
-                                    hover:shadow-md transition-all duration-300"
-                      >
-                        <div className="absolute left-0 top-1/2 w-2 h-8 bg-[#d4b595] -translate-y-1/2 rounded-r-lg" />
-                        <div className="absolute right-0 top-1/2 w-2 h-8 bg-[#d4b595] -translate-y-1/2 rounded-l-lg" />
-
-                        <h3
-                          className="text-lg font-serif text-[#654321] relative
-                                     group-hover:scale-105 transition-transform duration-300"
-                        >
+                      <div className="relative mt-1 mb-2 py-2 px-4">
+                        <h3 className="text-lg font-serif text-[#654321] dark:text-[#b8997a]">
                           {edu.degree}
-                          <div className="absolute -right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="animate-bounce">
-                              <BookOpen className="w-4 h-4 text-[#8B4513]" />
-                            </div>
-                          </div>
                         </h3>
                       </div>
 
-                      <p className="text-[#8B4513] font-semibold text-sm">
+                      <p className="text-[#8B4513] dark:text-[#b8997a] font-semibold text-sm">
                         {edu.institution}
                       </p>
-                      <div className="flex items-center justify-center gap-1 text-[#654321] mt-2 text-xs">
+                      <div className="flex items-center justify-center gap-1 text-[#654321] dark:text-[#b8997a] mt-2 text-xs">
                         <Calendar className="w-3 h-3" />
                         <span>{edu.date}</span>
                       </div>
-                      <div className="flex items-center justify-center gap-1 text-[#654321] mt-1 text-xs">
+                      <div className="flex items-center justify-center gap-1 text-[#654321] dark:text-[#b8997a] mt-1 text-xs">
                         <MapPin className="w-3 h-3" />
                         <span>{edu.location}</span>
                       </div>
                     </div>
 
-                    {/* Expandable content with slide-down animation */}
                     <div
-                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        activeFrame === edu.id
-                          ? "max-h-96 opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
+                      className={`overflow-hidden transition-all duration-500 ease-in-out transform
+                        ${activeFrame === edu.id ? "max-h-96 opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-0"}`}
+                      style={{ transformOrigin: "top" }}
                     >
                       <div className="mt-4 space-y-4">
                         {edu.achievements && (
                           <div>
-                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321]">
+                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321] dark:text-[#b8997a]">
                               <Award className="w-3 h-3" />
                               Achievements
                             </h4>
-                            <ul className="list-disc list-inside text-[#654321] text-xs">
+                            <ul className="list-disc list-inside text-[#654321] dark:text-[#b8997a] text-xs">
                               {edu.achievements.map((achievement, idx) => (
                                 <li key={idx}>{achievement}</li>
                               ))}
@@ -171,7 +157,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
 
                         {edu.courses && (
                           <div>
-                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321]">
+                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321] dark:text-[#b8997a]">
                               <BookOpen className="w-3 h-3" />
                               Key Courses
                             </h4>
@@ -179,7 +165,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
                               {edu.courses.map((course, idx) => (
                                 <span
                                   key={idx}
-                                  className="px-2 py-0.5 bg-[#f5e6d3] rounded-full text-xs text-[#8B4513]"
+                                  className="px-2 py-0.5 bg-[#f5e6d3] dark:bg-[#3d2b1f] rounded-full text-xs text-[#8B4513] dark:text-[#b8997a]"
                                 >
                                   {course}
                                 </span>

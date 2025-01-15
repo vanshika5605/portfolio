@@ -49,15 +49,16 @@ const TimelineItem = ({ experience, isEven }) => {
             <div className="animate-fadeIn mt-4 text-left">
               <div className="space-y-4">
                 {/* Description */}
-                <div>
+                {experience.description && <div>
                   <div className="text-amber-900 font-semibold mb-1">
                     Description
                   </div>
                   <p className="text-amber-800">{experience.description}</p>
-                </div>
+                </div>}
+                
 
                 {/* Key Achievements */}
-                <div>
+                {experience.achievements && <div>
                   <div className="text-amber-900 font-semibold mb-1">
                     Key Achievements
                   </div>
@@ -72,7 +73,8 @@ const TimelineItem = ({ experience, isEven }) => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div>}
+                
 
                 {/* Technologies - keeping flex layout but left-aligned container */}
                 <div>
@@ -122,10 +124,10 @@ const TimelineItem = ({ experience, isEven }) => {
         </div>
       </div>
 
-      {/* Center ladder structure */}
+      {/* Center ladder structure - increased width further */}
       <div className="relative flex items-center justify-center">
-        {/* Wooden rung effect */}
-        <div className="w-20 h-4 bg-gradient-to-b from-amber-700 to-amber-800 rounded-sm shadow-md" />
+        {/* Wooden rung effect - increased width from w-32 to w-48 */}
+        <div className="w-48 h-4 bg-gradient-to-b from-amber-700 to-amber-800 rounded-sm shadow-md" />
         <div className="absolute w-4 h-4 bg-amber-600 rounded-full border-2 border-amber-800" />
       </div>
 
@@ -133,4 +135,5 @@ const TimelineItem = ({ experience, isEven }) => {
     </div>
   );
 };
+
 export default TimelineItem;

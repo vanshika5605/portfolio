@@ -129,8 +129,11 @@ const LandingPage = () => {
                 </h1>
                 
                 <p className="text-sm md:text-base leading-relaxed">
-                A full-stack software developer passionate about crafting clean, efficient solutions to complex problems. I specialize in modern web technologies and thrive on turning innovative ideas into scalable applications.
+                As a Full Stack Developer with two years of industry experience, I specialize in creating scalable, user-focused applications using modern technologies like React.js, Java, and SQL. My expertise spans frontend development, backend systems, and database optimization, complemented by my pursuit of an M.S. in Computer Science at UMass Amherst, where I deepen my skills in system design and data-driven problem-solving.
                 </p>
+
+                <p className="text-sm md:text-base leading-relaxed">
+                Passionate about addressing real-world challenges, I aspire to work on impactful projects that extend beyond traditional corporate settings. With a focus on innovation and growth, I aim to create meaningful, sustainable solutions.                  </p>
                 
               </div>
             </div>
