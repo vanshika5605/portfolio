@@ -5,8 +5,8 @@ import Education from "./Education";
 import Experience from "./Experience";
 import Interests from "./Interests";
 import Navbar from "./Navbar";
-import Skills from "./Skills";
 import Projects from "./Projects";
+import Skills from "./Skills";
 
 const LandingPage = () => {
   const [theme, setTheme] = useState("light");
@@ -95,7 +95,7 @@ const LandingPage = () => {
               />
             </div>
           )}
-          
+
           <div className="md:w-2/3 md:ml-auto">
             <Navbar
               isLargeScreen={isLargeScreen}
@@ -112,8 +112,7 @@ const LandingPage = () => {
 
             {/* Text Content */}
             <div className="grid md:grid-cols-4 items-center min-h-[calc(100vh-8rem)]">
-            <div className="md:col-span-1">
-              </div>
+              <div className="md:col-span-1"></div>
               <div className="md:col-span-3 text-center md:text-left fade-in space-y-6">
                 {/* Optional Profile Picture */}
                 <div className="mb-6 flex justify-center md:justify-start">
@@ -123,25 +122,35 @@ const LandingPage = () => {
                     className="rounded-full w-32 h-32 object-cover shadow-lg hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                
+
                 <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:text-blue-500 transition-colors duration-300">
                   Hi, I'm Vanshika Agrawal
                 </h1>
-                
+
                 <p className="text-sm md:text-base leading-relaxed">
-                As a Full Stack Developer with two years of industry experience, I specialize in creating scalable, user-focused applications using modern technologies like React.js, Java, and SQL. My expertise spans frontend development, backend systems, and database optimization, complemented by my pursuit of an M.S. in Computer Science at UMass Amherst, where I deepen my skills in system design and data-driven problem-solving.
+                  As a Full Stack Developer with two years of industry
+                  experience, I specialize in creating scalable, user-focused
+                  applications using modern technologies like React.js, Java,
+                  and SQL. My expertise spans frontend development, backend
+                  systems, and database optimization, complemented by my pursuit
+                  of an M.S. in Computer Science at UMass Amherst, where I
+                  deepen my skills in system design and data-driven
+                  problem-solving.
                 </p>
 
                 <p className="text-sm md:text-base leading-relaxed">
-                Passionate about addressing real-world challenges, I aspire to work on impactful projects that extend beyond traditional corporate settings. With a focus on innovation and growth, I aim to create meaningful, sustainable solutions.                  </p>
-                
+                  Passionate about addressing real-world challenges, I aspire to
+                  work on impactful projects that extend beyond traditional
+                  corporate settings. With a focus on innovation and growth, I
+                  aim to create meaningful, sustainable solutions.{" "}
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-      <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen}/>
+
+      <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen} />
       <Education educationRef={educationRef} />
       <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
       <Experience experienceRef={experienceRef} />
