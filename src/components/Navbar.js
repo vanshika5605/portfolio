@@ -62,14 +62,7 @@ const Navbar = ({
             >
               <MessageCircleHeart className="w-6 h-6" />
             </button>
-            <button
-              onClick={() => scrollToSection(skillsRef)}
-              className={`p-2 transition-colors duration-200 ${
-                activeSection === "skills" ? "font-bold" : ""
-              }`}
-            >
-              <Lightbulb className="w-6 h-6" />
-            </button>
+            
             <button
               onClick={() => scrollToSection(educationRef)}
               className={`p-2 transition-colors duration-200 ${
@@ -77,6 +70,14 @@ const Navbar = ({
               }`}
             >
               <BookOpen className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => scrollToSection(skillsRef)}
+              className={`p-2 transition-colors duration-200 ${
+                activeSection === "skills" ? "font-bold" : ""
+              }`}
+            >
+              <Lightbulb className="w-6 h-6" />
             </button>
             <button
               onClick={() => scrollToSection(experienceRef)}
@@ -121,14 +122,7 @@ const Navbar = ({
             >
               interests
             </button>
-            <button
-              onClick={() => scrollToSection(skillsRef)}
-              className={`hover:font-bold transition-colors duration-200 ${
-                activeSection === "skills" ? "font-bold" : ""
-              }`}
-            >
-              skills
-            </button>
+            
             <button
               onClick={() => scrollToSection(educationRef)}
               className={`hover:font-bold transition-colors duration-200 ${
@@ -136,6 +130,14 @@ const Navbar = ({
               }`}
             >
               education
+            </button>
+            <button
+              onClick={() => scrollToSection(skillsRef)}
+              className={`hover:font-bold transition-colors duration-200 ${
+                activeSection === "skills" ? "font-bold" : ""
+              }`}
+            >
+              skills
             </button>
             <button
               onClick={() => scrollToSection(experienceRef)}

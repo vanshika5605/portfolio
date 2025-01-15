@@ -1,32 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 import projects from "../data/projects.json";
 
 const Projects = ({ projectsRef }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const scrollContainerRef = useRef(null);
 
   // Generate random rotation between -20 and 20 degrees
   const getRandomRotation = () => Math.random() * 40 - 20;
+
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const scrollAmount = 300; // Adjust this value to control scroll distance
+    const targetScroll = container.scrollLeft + (direction === 'right' ? scrollAmount : -scrollAmount);
+    
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section
       ref={projectsRef}
       className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
     >
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-16 text-center">
-        My Projects
-        <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
-      </h2>
+      <div className="flex flex-col items-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
+          My Work
+        </h2>
+        <div className="h-1 w-20 bg-blue-500 mb-8"></div>
+      </div>
 
-      {/* Thread Line */}
+      {/* Main Container with Navigation */}
       <div className="relative max-w-[90vw] mx-auto">
+        {/* Thread Line */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-300">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300 opacity-50"></div>
         </div>
 
+        {/* Navigation Buttons */}
+        <button 
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors duration-300"
+          aria-label="Previous projects"
+        >
+          <ChevronLeft className="w-6 h-6 text-gray-600" />
+        </button>
+
+        <button 
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors duration-300"
+          aria-label="Next projects"
+        >
+          <ChevronRight className="w-6 h-6 text-gray-600" />
+        </button>
+
         {/* Scrollable Container */}
-        <div className="flex overflow-x-auto pb-8 pt-8 gap-8 snap-x snap-mandatory scrollbar-hide">
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-hidden pb-8 pt-8 gap-8 snap-x snap-mandatory scrollbar-hide"
+        >
           {projects.map((project, index) => {
             const rotation = getRandomRotation();
             return (
@@ -112,7 +150,7 @@ const Projects = ({ projectsRef }) => {
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
-        ></ProjectModal>
+        />
       )}
     </section>
   );

@@ -1,0 +1,38 @@
+[
+    {
+      "year": "2022 - Present",
+      "role": "Senior Software Engineer",
+      "company": "Tech Innovation Inc",
+      "description": "Leading the development of enterprise-scale applications while mentoring junior developers and establishing technical standards across multiple teams.",
+      "achievements": [
+        "Architected and implemented a microservices-based platform",
+        "Reduced system downtime by 75% through infrastructure improvements",
+        "Mentored 4 junior developers to promotion"
+      ],
+      "technologies": ["React", "Node.js", "AWS", "Kubernetes", "PostgreSQL"]
+    },
+    {
+      "year": "2019 - 2022",
+      "role": "Full Stack Developer",
+      "company": "Digital Solutions Co",
+      "description": "Developed and maintained multiple web applications while collaborating with product managers and designers to deliver exceptional user experiences.",
+      "achievements": [
+        "Led development of company's flagship product",
+        "Implemented automated testing reducing bugs by 60%",
+        "Optimized database queries improving performance by 40%"
+      ],
+      "technologies": ["React", "TypeScript", "Express", "MongoDB", "Redis"]
+    },
+    {
+      "year": "2017 - 2019",
+      "role": "Frontend Developer",
+      "company": "Web Creators Ltd",
+      "description": "Created responsive web interfaces and implemented UI/UX designs while ensuring cross-browser compatibility and optimal performance.",
+      "achievements": [
+        "Built reusable component library used across projects",
+        "Improved page load times by 50%",
+        "Developed 20+ client websites"
+      ],
+      "technologies": ["JavaScript", "HTML5", "CSS3", "Vue.js", "Webpack"]
+    }
+  ]

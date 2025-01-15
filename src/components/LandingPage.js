@@ -47,8 +47,8 @@ const LandingPage = () => {
 
       const sections = {
         interests: interestsRef.current?.offsetTop,
-        skills: skillsRef.current?.offsetTop,
         education: educationRef.current?.offsetTop,
+        skills: skillsRef.current?.offsetTop,
         experience: experienceRef.current?.offsetTop,
         projects: projectsRef.current?.offsetTop,
         contact: contactRef.current?.offsetTop,
@@ -139,8 +139,8 @@ const LandingPage = () => {
       </section>
       
       <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen}/>
-      <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
       <Education educationRef={educationRef} />
+      <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
       <Experience experienceRef={experienceRef} />
       <Projects projectsRef={projectsRef}></Projects>
       <Contact contactRef={contactRef} />
