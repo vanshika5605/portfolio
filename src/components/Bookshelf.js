@@ -123,7 +123,7 @@ const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
                                 <div className="text-[9px] sm:text-[10px] text-gray-600">
                                   {skill.proficiency}% Proficiency
                                 </div>
-                                <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-600">
+                                {/* <div className="flex text-[9px] sm:text-[10px] text-gray-600">
                                   <div className="flex items-center gap-1">
                                     <Calendar size={9} className="sm:w-[10px] sm:h-[10px]" />
                                     {skill.years}
@@ -132,7 +132,7 @@ const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
                                     <Code size={9} className="sm:w-[10px] sm:h-[10px]" />
                                     {skill.projects} projects
                                   </div>
-                                </div>
+                                </div> */}
                               </div>
                             </div>
                           )}

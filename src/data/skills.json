@@ -8,25 +8,19 @@
 				"skills": [
 					{
 						"name": "JavaScript",
-						"proficiency": 85,
+						"proficiency": 95,
 						"years": "4 years",
 						"projects": 15
 					},
 					{
 						"name": "HTML",
-						"proficiency": 90,
+						"proficiency": 100,
 						"years": "5 years",
 						"projects": 20
 					},
 					{
 						"name": "CSS/SASS",
-						"proficiency": 90,
-						"years": "5 years",
-						"projects": 20
-					},
-					{
-						"name": "JavaScript",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 20
 					}
@@ -44,18 +38,24 @@
 					},
 					{
 						"name": "C++",
-						"proficiency": 80,
+						"proficiency": 90,
 						"years": "3 years",
 						"projects": 6
 					},
 					{
 						"name": "Python",
-						"proficiency": 85,
+						"proficiency": 60,
 						"years": "4 years",
 						"projects": 8
 					},
 					{
 						"name": "SQL",
+						"proficiency": 95,
+						"years": "5 years",
+						"projects": 20
+					},
+					{
+						"name": "PHP",
 						"proficiency": 90,
 						"years": "5 years",
 						"projects": 20
@@ -73,13 +73,13 @@
 				"skills": [
 					{
 						"name": "SpringBoot",
-						"proficiency": 85,
+						"proficiency": 90,
 						"years": "4 years",
 						"projects": 10
 					},
 					{
 						"name": "React.js",
-						"proficiency": 85,
+						"proficiency": 95,
 						"years": "3 years",
 						"projects": 12
 					},
@@ -91,7 +91,7 @@
 					},
 					{
 						"name": "Bootstrap",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "4 years",
 						"projects": 15
 					}
@@ -103,25 +103,25 @@
 				"skills": [
 					{
 						"name": "WebSocket",
-						"proficiency": 85,
+						"proficiency": 90,
 						"years": "3 years",
 						"projects": 12
 					},
 					{
 						"name": "ActiveMQ",
-						"proficiency": 85,
+						"proficiency": 70,
 						"years": "3 years",
 						"projects": 12
 					},
 					{
 						"name": "Apache Spark",
-						"proficiency": 85,
+						"proficiency": 70,
 						"years": "3 years",
 						"projects": 12
 					},
 					{
 						"name": "Wijmo",
-						"proficiency": 85,
+						"proficiency": 70,
 						"years": "3 years",
 						"projects": 12
 					}
@@ -139,13 +139,13 @@
 					},
 					{
 						"name": "MongoDB",
-						"proficiency": 80,
+						"proficiency": 75,
 						"years": "3 years",
 						"projects": 6
 					},
 					{
 						"name": "Neo4j",
-						"proficiency": 75,
+						"proficiency": 60,
 						"years": "2 years",
 						"projects": 4
 					}
@@ -163,25 +163,25 @@
 				"skills": [
 					{
 						"name": "Git",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 25
 					},
 					{
 						"name": "GitHub",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 25
 					},
 					{
 						"name": "Bitbucket",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 25
 					},
 					{
 						"name": "Jira",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 25
 					},
@@ -217,13 +217,13 @@
 					},
 					{
 						"name": "Agile Methods",
-						"proficiency": 75,
+						"proficiency": 80,
 						"years": "2 years",
 						"projects": 4
 					},
 					{
 						"name": "UI Design",
-						"proficiency": 90,
+						"proficiency": 95,
 						"years": "5 years",
 						"projects": 25
 					}

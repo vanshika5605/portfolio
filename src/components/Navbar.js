@@ -10,6 +10,7 @@ import {
   Sun,
 } from "lucide-react";
 import React from "react";
+import NavButtons from "./NavButtons";
 
 const Navbar = ({
   activeSection,
@@ -84,14 +85,14 @@ const Navbar = ({
                 onClick={() => scrollToSection(ref)}
                 className={`
                   p-2 flex flex-col items-center space-y-1 relative
-                  ${activeSection === section ? "text-blue-500" : ""}
+                  ${activeSection === section ? "text-purple-700 dark:text-purple-300" : ""}
                 `}
               >
                 <Icon className="w-6 h-6" />
                 <span className="text-xs">{label}</span>
                 {activeSection === section && (
                   <svg
-                    className="absolute -bottom-1 w-full h-2 text-blue-500"
+                    className="absolute -bottom-1 w-full h-2 text-purple-700 dark:text-purple-300"
                     viewBox="0 0 100 20"
                     preserveAspectRatio="none"
                   >
@@ -124,24 +125,7 @@ const Navbar = ({
             </div>
             
             <div className="flex items-center space-x-4">
-              <button
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                aria-label="Toggle theme"
-              >
-                {theme === "light" ? (
-                  <Moon className="w-6 h-6" />
-                ) : (
-                  <Sun className="w-6 h-6" />
-                )}
-              </button>
-              <button
-                onClick={handleDownloadResume}
-                className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center gap-2"
-              >
-                <Download className="w-6 h-6" />
-                <span className="hidden md:inline">Resume</span>
-              </button>
+              <NavButtons theme={theme} setTheme={setTheme}/>
             </div>
           </div>
         </div>

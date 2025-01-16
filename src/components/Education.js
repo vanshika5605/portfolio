@@ -53,6 +53,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
           
           <div className="relative" style={{ zIndex: 3 }}>
             <SectionHeading text="Academic Journey"></SectionHeading>
+
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 relative" style={{ zIndex: 3 }}>

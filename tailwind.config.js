@@ -7,14 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        lightBg: '#FEFAE0',
+        lightBg: '#e0b1cb',
         darkBg: '#582630',
-        lightPrimaryColor: '#E9EDC9',
+        lightPrimaryColor: '#fae1dd',
         darkPrimaryColor: '#A54657',
-        lightSecondaryColor: '#FAEDCD',
+        lightSecondaryColor: '#e0b1cb',
         darkSecondaryColor: '#e26d5c',
-        lightTertiaryColor: '#fdf0d5',
-        darkTertiaryColor: '#2c2a32',
+        lightTertiaryColor: '#e0b1cb',
+        darkTertiaryColor: '#231942',
         lightText: '#000000',
         darkText: '#ffffff',
       },

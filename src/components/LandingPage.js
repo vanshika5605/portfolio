@@ -1,5 +1,4 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Download, Moon, Sun } from "lucide-react"; // Add this import
 import React, { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
 import Education from "./Education";
@@ -8,6 +7,7 @@ import Interests from "./Interests";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
 import Skills from "./Skills";
+import NavButtons from "./NavButtons";
 
 const LandingPage = () => {
   const [theme, setTheme] = useState("dark");
@@ -97,36 +97,11 @@ const LandingPage = () => {
     return () => window.removeEventListener("scroll", scrollListener);
   }, []);
 
-  const handleDownloadResume = () => {
-    // Replace with your actual resume file path
-    const resumeUrl = "Vanshika_Agrawal - Resume.pdf";
-    window.open(resumeUrl, "_blank");
-  };
-
   return (
-    <div className="min-h-screen theme-transition bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText custom-scrollbar font-body">
+    <div className="custom-scrollbar min-h-screen theme-transition bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText font-body">
       {/* Theme Toggle Button - Fixed Position */}
       {!isLargeScreen && (
-        <>
-          <button
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? (
-              <Moon className="w-6 h-6" />
-            ) : (
-              <Sun className="w-6 h-6" />
-            )}
-          </button>
-          <button
-            onClick={handleDownloadResume}
-            className="fixed top-4 right-16 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center gap-2"
-          >
-            <Download className="w-6 h-6" />
-            <span className="hidden md:inline">Resume</span>
-          </button>
-        </>
+        <NavButtons setTheme={setTheme} theme={theme} class1="fixed top-4 right-4 z-50" class2="fixed top-4 right-16 z-50"/>
       )}
 
       {/* Hero Section */}
@@ -166,7 +141,6 @@ const LandingPage = () => {
               contactRef={contactRef}
               theme={theme}
               setTheme={setTheme}
-              handleDownloadResume={handleDownloadResume}
             />
 
             {/* Text Content */}
