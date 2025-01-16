@@ -1,11 +1,5 @@
+import { Award, BookOpen, Calendar, GraduationCap, MapPin } from "lucide-react";
 import React, { useState } from "react";
-import {
-  Award,
-  Calendar,
-  MapPin,
-  BookOpen,
-  GraduationCap,
-} from "lucide-react";
 import education from "../data/education.json";
 import SectionHeading from "./SectionHeading";
 
@@ -34,7 +28,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
               backgroundColor: "var(--bg-color)",
               "--pattern-color": "var(--tw-prose-pre-bg, #b8997a)",
               "--bg-color": "var(--tw-prose-pre-bg, #d4b595)",
-              zIndex: 1
+              zIndex: 1,
             }}
           />
 
@@ -47,19 +41,28 @@ const Education = ({ educationRef, isLargeScreen }) => {
               `,
               backgroundSize: "29px 15px",
               "--grid-color": "var(--tw-prose-pre-bg, #000)",
-              zIndex: 2
+              zIndex: 2,
             }}
           />
-          
+
           <div className="relative" style={{ zIndex: 3 }}>
             <SectionHeading text="Academic Journey"></SectionHeading>
-
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 relative" style={{ zIndex: 3 }}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 relative"
+            style={{ zIndex: 3 }}
+          >
             {education.map((edu, index) => (
-              <div key={edu.id} className="relative group min-h-[320px]" style={{ zIndex: 4 }}>
-                <div className="absolute inset-0 bg-black opacity-20 blur-md transform translate-y-2 translate-x-2" style={{ zIndex: 5 }} />
+              <div
+                key={edu.id}
+                className="relative group min-h-[320px]"
+                style={{ zIndex: 4 }}
+              >
+                <div
+                  className="absolute inset-0 bg-black opacity-20 blur-md transform translate-y-2 translate-x-2"
+                  style={{ zIndex: 5 }}
+                />
 
                 <div
                   className={`relative bg-[#f5e6d3] dark:bg-[#2a1f1a] p-4 rounded-lg transition-all duration-500
@@ -69,13 +72,17 @@ const Education = ({ educationRef, isLargeScreen }) => {
                     before:bg-[#d4b595] dark:before:bg-[#3d2b1f] before:rounded-t-lg
                     after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-2 
                     after:bg-[#d4b595] dark:after:bg-[#3d2b1f] after:rounded-b-lg`}
-                  onClick={() => setActiveFrame(activeFrame === edu.id ? null : edu.id)}
+                  onClick={() =>
+                    setActiveFrame(activeFrame === edu.id ? null : edu.id)
+                  }
                   style={{
                     boxShadow: "inset 0 0 20px rgba(0,0,0,0.2)",
                     minHeight: "320px",
-                    transform: `rotate${activeFrame === edu.id ? "X(0deg)" : "X(5deg)"}`,
+                    transform: `rotate${
+                      activeFrame === edu.id ? "X(0deg)" : "X(5deg)"
+                    }`,
                     transformOrigin: "top",
-                    zIndex: 6
+                    zIndex: 6,
                   }}
                 >
                   {/* Rest of the component stays the same */}
@@ -117,7 +124,11 @@ const Education = ({ educationRef, isLargeScreen }) => {
 
                     <div
                       className={`overflow-hidden transition-all duration-500 ease-in-out transform
-                        ${activeFrame === edu.id ? "max-h-96 opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-0"}`}
+                        ${
+                          activeFrame === edu.id
+                            ? "max-h-96 opacity-100 scale-y-100"
+                            : "max-h-0 opacity-0 scale-y-0"
+                        }`}
                       style={{ transformOrigin: "top" }}
                     >
                       <div className="mt-4 space-y-4">

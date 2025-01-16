@@ -39,10 +39,9 @@ const Experience = ({ experienceRef }) => {
             "--grid-color": "var(--tw-prose-pre-bg, #000)",
           }}
         />
-        <div className="relative z-20">
-          <div className="flex flex-col items-center">
-            <SectionHeading text="Professional Experience"></SectionHeading>
-          </div>
+
+        <div className="relative" style={{ zIndex: 3 }}>
+          <SectionHeading text="Professional Experience"></SectionHeading>
         </div>
 
         <div className="max-w-6xl mx-auto p-4 md:p-8">
