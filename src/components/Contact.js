@@ -7,7 +7,7 @@ const Contact = ({contactRef}) => {
       className="text-lightText dark:text-darkText theme-transition"
       ref={contactRef}
     >
-    <div className="min-h-[400px] bg-lightTertiaryColor text-lightText dark:bg-darkTertiaryColor dark:text-darkText p-8 relative overflow-hidden">
+    <div className="min-h-[400px] bg-lightTertiaryColor text-lightText dark:bg-darkTertiaryColor dark:text-darkText p-20 relative overflow-hidden">
       <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between">
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-6 z-10">

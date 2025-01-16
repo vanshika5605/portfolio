@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 import projects from "../data/projects.json";
+import SectionHeading from "./SectionHeading";
 
 const Projects = ({ projectsRef }) => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -30,10 +31,7 @@ const Projects = ({ projectsRef }) => {
       className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
     >
       <div className="flex flex-col items-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-          My Work
-        </h2>
-        <div className="h-1 w-20 bg-blue-500 mb-8"></div>
+        <SectionHeading text="My Work"></SectionHeading>
       </div>
 
       {/* Main Container with Navigation */}

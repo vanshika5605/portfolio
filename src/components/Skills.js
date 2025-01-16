@@ -1,36 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Bookshelf from "./Bookshelf";
+import SectionHeading from "./SectionHeading";
 
-const Skills = ({ isLargeScreen, skillsRef }) => {
+const Skills = ({ skillsRef }) => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Detect touch device on mount
+  useEffect(() => {
+    const detectTouch = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+
+    detectTouch();
+    window.addEventListener('touchstart', detectTouch, { once: true });
+
+    return () => {
+      window.removeEventListener('touchstart', detectTouch);
+    };
+  }, []);
 
   return (
     <section
-      className="bg-lightTertiaryColor text-lightText dark:bg-darkTertiaryColor dark:text-darkText theme-transition py-16 md:py-24"
+      className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
       ref={skillsRef}
     >
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-            My Technology Library
-          </h2>
-          <div className="h-1 w-20 bg-blue-500 mb-8"></div>
+        {/* Header with improved mobile spacing */}
+        <div className="flex flex-col items-center mb-8 sm:mb-12">
+          <SectionHeading text="My Technology Library"></SectionHeading>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-          {/* Description section */}
-          <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
-            <p className="text-sm md:text-base text-lightText dark:text-darkText">
+        {/* Main content with improved mobile layout */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-12">
+          {/* Description section with better text sizing and spacing */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left space-y-3 sm:space-y-4 mb-6 lg:mb-0">
+            <p className="text-sm sm:text-base lg:text-lg text-lightText dark:text-darkText px-4 sm:px-6 lg:px-0">
               Welcome to my technology library, where each book represents a
               skill I've mastered throughout my journey as a software developer.
             </p>
-            <p className="text-sm text-lightText dark:text-darkText">
+            <p className="text-xs sm:text-sm text-lightText dark:text-darkText opacity-80">
               {isTouchDevice ? "Tap" : "Hover over"} any book to discover more details.
             </p>
           </div>
 
-          {/* Bookshelf section */}
-          <div className="w-full md:w-1/2 flex justify-center">
+          {/* Bookshelf section with responsive width */}
+          <div className="w-full sm:w-4/5 lg:w-1/2 flex justify-center px-2 sm:px-4">
             <Bookshelf 
               isTouchDevice={isTouchDevice} 
               setIsTouchDevice={setIsTouchDevice}

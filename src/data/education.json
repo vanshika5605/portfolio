@@ -8,6 +8,7 @@
       "date": "Expected: May 2026",
       "status": "current",
       "color": "blue",
+      "achievements": ["GPA: 3.77/4"],
       "courses": [
         "Advanced Algorithms",
         "Systems for Data Science",
@@ -22,7 +23,7 @@
       "location": "Bhopal, India",
       "date": "Jul 2018 – May 2022",
       "color": "purple",
-      "achievements": ["CGPA: 9.23/10", "Rank: 2/210"],
+      "achievements": ["GPA: 9.23/10", "Rank: 2/210", "Silver Medal in CSE"],
       "courses": [
         "Data Structures",
         "DBMS",
@@ -39,6 +40,7 @@
       "institution": "Billabong High International",
       "location": "India",
       "color": "green",
+      "achievements": ["12th Grade: 96.2%","State Topper in 10th Grade for achieving 97.6%"],
       "date": "2018"
     }
   ]

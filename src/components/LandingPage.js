@@ -1,4 +1,5 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { Download, Moon, Sun } from "lucide-react"; // Add this import
 import React, { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
 import Education from "./Education";
@@ -9,7 +10,7 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 
 const LandingPage = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [isLargeScreen, setIsLargeScreen] = useState(true);
   const [activeSection, setActiveSection] = useState("");
 
@@ -43,7 +44,10 @@ const LandingPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      // Add navbar height offset if you have a fixed navbar
+      const navbarHeight = 100; // Adjust this value based on your navbar height
+      const scrollPosition = window.scrollY + navbarHeight;
+      const buffer = 50; // Buffer zone to prevent rapid switching
 
       const sections = {
         interests: interestsRef.current?.offsetTop,
@@ -54,24 +58,79 @@ const LandingPage = () => {
         contact: contactRef.current?.offsetTop,
       };
 
+      // Sort sections by their offset position
+      const sortedSections = Object.entries(sections).sort(
+        (a, b) => (a[1] || 0) - (b[1] || 0)
+      );
+
       let currentSection = "";
-      Object.entries(sections).forEach(([key, value]) => {
-        if (value && scrollPosition >= value) {
+
+      // Find the last section that we've scrolled past (accounting for buffer)
+      for (const [key, offset] of sortedSections) {
+        if (offset && scrollPosition >= offset - buffer) {
           currentSection = key;
         }
-      });
+      }
 
-      setActiveSection(currentSection);
+      // Only update if the section actually changed
+      setActiveSection((prevSection) =>
+        currentSection !== prevSection ? currentSection : prevSection
+      );
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
+
+    // Throttle the scroll event for better performance
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
   }, []);
+
+  const handleDownloadResume = () => {
+    // Replace with your actual resume file path
+    const resumeUrl = "Vanshika_Agrawal - Resume.pdf";
+    window.open(resumeUrl, "_blank");
+  };
 
   return (
     <div className="min-h-screen theme-transition bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText custom-scrollbar font-body">
+      {/* Theme Toggle Button - Fixed Position */}
+      {!isLargeScreen && (
+        <>
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? (
+              <Moon className="w-6 h-6" />
+            ) : (
+              <Sun className="w-6 h-6" />
+            )}
+          </button>
+          <button
+            onClick={handleDownloadResume}
+            className="fixed top-4 right-16 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center gap-2"
+          >
+            <Download className="w-6 h-6" />
+            <span className="hidden md:inline">Resume</span>
+          </button>
+        </>
+      )}
+
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-16">
+      <section className="relative min-h-screen pt-32">
         {/* Split Background - Only visible on large screens */}
         <div className="absolute inset-0 hidden md:flex">
           <div className="w-1/3 bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText theme-transition" />
@@ -95,7 +154,6 @@ const LandingPage = () => {
               />
             </div>
           )}
-
           <div className="md:w-2/3 md:ml-auto">
             <Navbar
               isLargeScreen={isLargeScreen}
@@ -108,13 +166,13 @@ const LandingPage = () => {
               contactRef={contactRef}
               theme={theme}
               setTheme={setTheme}
+              handleDownloadResume={handleDownloadResume}
             />
 
             {/* Text Content */}
             <div className="grid md:grid-cols-4 items-center min-h-[calc(100vh-8rem)]">
               <div className="md:col-span-1"></div>
               <div className="md:col-span-3 text-center md:text-left fade-in space-y-6">
-                {/* Optional Profile Picture */}
                 <div className="mb-6 flex justify-center md:justify-start">
                   <img
                     src="profile-2.jpg"
@@ -123,7 +181,7 @@ const LandingPage = () => {
                   />
                 </div>
 
-                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:text-blue-500 transition-colors duration-300">
+                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:scale-105 hover:text-purple-700 dark:hover:text-purple-300 transition-transform duration-300">
                   Hi, I'm Vanshika Agrawal
                 </h1>
 

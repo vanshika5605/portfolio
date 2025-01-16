@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SectionHeading from "./SectionHeading";
 
 const Interests = ({ isLargeScreen, interestsRef }) => {
   const [activeInterest, setActiveInterest] = useState(null);
@@ -60,10 +61,8 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
       className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
     >
       <div className="p-8">
-        <h2 className="text-3xl font-bold mb-12 text-center hover:scale-105 hover:text-blue-500 transition-transform duration-300">
-          What Interests Me
-          <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
-        </h2>
+        <SectionHeading text="What Interests Me"></SectionHeading>
+      
 
         <div
           className={`flex flex-wrap gap-4 justify-center 

@@ -5,84 +5,60 @@ import {
   MapPin,
   BookOpen,
   GraduationCap,
-  Clock,
-  Coffee,
-  Image,
 } from "lucide-react";
 import education from "../data/education.json";
+import SectionHeading from "./SectionHeading";
 
 const Education = ({ educationRef, isLargeScreen }) => {
   const [activeFrame, setActiveFrame] = useState(null);
 
-  const getRandomPosition = (index) => {
-    const positions = [
-      { top: "15%", left: "5%" },
-      { top: "25%", right: "5%" },
-      { top: "45%", left: "7%" },
-      { top: "65%", right: "7%" },
-      { top: "75%", left: "5%" },
-    ];
-    return positions[index % positions.length];
-  };
-
-  const decorElements = [
-    { icon: Clock, size: "w-12 h-12" },
-    { icon: Coffee, size: "w-10 h-10" },
-    { icon: Image, size: "w-14 h-14" },
-    { icon: Clock, size: "w-10 h-10" },
-    { icon: Coffee, size: "w-12 h-12" },
-  ];
-
   return (
     <section
       ref={educationRef}
-      className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition"
+      className="relative bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition"
+      style={{ zIndex: 0 }}
     >
       <div>
         <div className="relative bg-[#e8d1c0] dark:bg-[#3d2b1f] p-12 rounded-lg shadow-inner text-lightText dark:text-darkText">
-        <div
-          className="absolute inset-0 rounded-lg opacity-90"
-          style={{
-            backgroundImage: `
-              linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
-              linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px),
-              linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
-              linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px)
-            `,
-            backgroundSize: "58px 58px",
-            backgroundPosition: "0px 2px, 4px 35px, 29px 31px, 34px 6px",
-            backgroundColor: "var(--bg-color)",
-            "--pattern-color": "var(--tw-prose-pre-bg, #b8997a)",
-            "--bg-color": "var(--tw-prose-pre-bg, #d4b595)"
-          }}
-        />
+          <div
+            className="absolute inset-0 rounded-lg opacity-90"
+            style={{
+              backgroundImage: `
+                linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
+                linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px),
+                linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
+                linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px)
+              `,
+              backgroundSize: "58px 58px",
+              backgroundPosition: "0px 2px, 4px 35px, 29px 31px, 34px 6px",
+              backgroundColor: "var(--bg-color)",
+              "--pattern-color": "var(--tw-prose-pre-bg, #b8997a)",
+              "--bg-color": "var(--tw-prose-pre-bg, #d4b595)",
+              zIndex: 1
+            }}
+          />
 
-        <div
-          className="absolute inset-0 rounded-lg opacity-20 dark:opacity-30"
-          style={{
-            backgroundImage: `
-              linear-gradient(var(--grid-color) 1px, transparent 1px),
-              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)
-            `,
-            backgroundSize: "29px 15px",
-            "--grid-color": "var(--tw-prose-pre-bg, #000)"
-          }}
-        />
+          <div
+            className="absolute inset-0 rounded-lg opacity-20 dark:opacity-30"
+            style={{
+              backgroundImage: `
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)
+              `,
+              backgroundSize: "29px 15px",
+              "--grid-color": "var(--tw-prose-pre-bg, #000)",
+              zIndex: 2
+            }}
+          />
           
-          <div className="relative z-20">
-            <h2 className="text-3xl font-bold mb-12 text-center transition-all duration-300 hover:scale-105 hover:text-blue-500">
-              Academic Journey
-              <div className="h-1 w-20 bg-blue-500 mx-auto mt-2"></div>
-            </h2>
+          <div className="relative" style={{ zIndex: 3 }}>
+            <SectionHeading text="Academic Journey"></SectionHeading>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 relative" style={{ zIndex: 3 }}>
             {education.map((edu, index) => (
-              <div key={edu.id} className="relative group min-h-[320px]">
-                <div className="absolute inset-0 bg-black opacity-20 blur-md transform translate-y-2 translate-x-2" />
-
-                <div className="absolute left-1/2 -top-6 w-px h-6 bg-gray-400" />
-                <div className="absolute left-1/2 -top-6 w-3 h-1 bg-gray-600 -translate-x-1/2" />
+              <div key={edu.id} className="relative group min-h-[320px]" style={{ zIndex: 4 }}>
+                <div className="absolute inset-0 bg-black opacity-20 blur-md transform translate-y-2 translate-x-2" style={{ zIndex: 5 }} />
 
                 <div
                   className={`relative bg-[#f5e6d3] dark:bg-[#2a1f1a] p-4 rounded-lg transition-all duration-500
@@ -98,8 +74,11 @@ const Education = ({ educationRef, isLargeScreen }) => {
                     minHeight: "320px",
                     transform: `rotate${activeFrame === edu.id ? "X(0deg)" : "X(5deg)"}`,
                     transformOrigin: "top",
+                    zIndex: 6
                   }}
                 >
+                  {/* Rest of the component stays the same */}
+                  {/* ... Existing card content ... */}
                   <div className="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-tl-lg" />
                   <div className="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-[#A0522D] dark:border-[#614434] rounded-tr-lg" />
                   <div className="absolute bottom-2 left-2 w-6 h-6 border-b-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-bl-lg" />
@@ -107,7 +86,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
 
                   <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-transparent dark:from-gray-800 opacity-30 rounded-lg pointer-events-none" />
 
-                  <div className="relative">
+                  <div className="relative" style={{ zIndex: 7 }}>
                     <div className="text-center mb-2">
                       <div className="flex justify-center mb-2">
                         <GraduationCap className="w-8 h-8 text-[#8B4513] dark:text-[#b8997a]" />
