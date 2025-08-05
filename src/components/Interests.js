@@ -29,9 +29,9 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
       emoji: "💻",
     },
     {
-      title: "Database Development",
-      description: "Creating efficient data structures that power applications",
-      emoji: "🗄️",
+      title: "Cloud Computing",
+      description: "Keen on leveraging cloud for smarter applications",
+      emoji: "☁️",
     },
     {
       title: "Problem Solving",

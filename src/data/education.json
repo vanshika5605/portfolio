@@ -8,11 +8,14 @@
       "date": "Expected: May 2026",
       "status": "current",
       "color": "blue",
-      "achievements": ["GPA: 3.77/4"],
+      "achievements": ["GPA: 3.88/4"],
       "courses": [
         "Advanced Algorithms",
         "Systems for Data Science",
-        "Theory of Software Engineering"
+        "Theory of Software Engineering",
+        "Distributed and Operating Systems", 
+        "Machine Learning", 
+        "Data Management & Analytics"
       ]
     },
     {

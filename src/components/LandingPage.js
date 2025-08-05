@@ -101,7 +101,12 @@ const LandingPage = () => {
     <div className="custom-scrollbar min-h-screen theme-transition bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText font-body">
       {/* Theme Toggle Button - Fixed Position */}
       {!isLargeScreen && (
-        <NavButtons setTheme={setTheme} theme={theme} class1="fixed top-4 right-4 z-50" class2="fixed top-4 right-16 z-50"/>
+        <NavButtons
+          setTheme={setTheme}
+          theme={theme}
+          class1="fixed top-4 right-4 z-50"
+          class2="fixed top-4 right-16 z-50"
+        />
       )}
 
       {/* Hero Section */}
@@ -160,21 +165,18 @@ const LandingPage = () => {
                 </h1>
 
                 <p className="text-sm md:text-base leading-relaxed">
-                  As a Full Stack Developer with two years of industry
-                  experience, I specialize in creating scalable, user-focused
-                  applications using modern technologies like React.js, Java,
-                  and SQL. My expertise spans frontend development, backend
-                  systems, and database optimization, complemented by my pursuit
-                  of an M.S. in Computer Science at UMass Amherst, where I
-                  deepen my skills in system design and data-driven
-                  problem-solving.
+                  I'm a Full Stack Developer with two years of industry
+                  experience, skilled in building scalable, user-focused
+                  applications using React.js, Java, and SQL. My work spans
+                  frontend, backend, and database optimization.
                 </p>
 
                 <p className="text-sm md:text-base leading-relaxed">
-                  Passionate about addressing real-world challenges, I aspire to
-                  work on impactful projects that extend beyond traditional
-                  corporate settings. With a focus on innovation and growth, I
-                  aim to create meaningful, sustainable solutions.{" "}
+                  Currently pursuing an M.S. in Computer Science at UMass
+                  Amherst, I'm now exploring cloud computing and machine
+                  learning, driven by a deep interest in designing intelligent,
+                  distributed systems. I’m excited to build solutions that are
+                  not only technically robust but also meaningful and impactful.{" "}
                 </p>
               </div>
             </div>

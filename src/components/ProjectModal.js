@@ -75,7 +75,7 @@ const ProjectModal = ({ project, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Live Project
+              View Source Code
             </a>
           </div>
         </div>

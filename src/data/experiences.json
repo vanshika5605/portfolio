@@ -1,5 +1,25 @@
 [
   {
+    "year": "2025",
+    "role": "Cloud Identity Engineering Intern",
+    "company": "Bose Corporation",
+    "description": "",
+    "achievements": [
+
+    ],
+    "technologies": [
+      "Go",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "CICD",
+      "Devops",
+      "Prometheus",
+      "Grafana"
+    ],
+    "location": "Framingham, MA, US"
+  },
+  {
     "year": "2022 - 2024",
     "role": "Senior Technology Analyst",
     "company": "Deutsche Bank Group",
