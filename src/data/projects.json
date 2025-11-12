@@ -3,7 +3,7 @@
     "title": "Eco Score",
     "description": "AI-powered mobile platform that converts carbon footprint into cash rewards and tiers.",
     "fullDescription": "EcoScore is a comprehensive mobile application designed to transform environmental accountability. It tracks a user's carbon footprint across daily activities (Shopping, Transportation, Energy Use) using advanced OCR and LLM estimation. The platform then assigns a universal 'EcoScore' that places users in a percentile-based reward tier (Bronze to Platinum), unlocking increasing levels of real cashback and discounts. The goal is to make sustainability effortless, financially rewarding, and highly competitive.",
-    "image": "ecoscore-dashboard.jpeg",
+    "image": "eco-score.jpeg",
     "tech": [
       "React Native + Expo",
       "Python",
