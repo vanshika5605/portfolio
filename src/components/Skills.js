@@ -8,14 +8,16 @@ const Skills = ({ skillsRef }) => {
   // Detect touch device on mount
   useEffect(() => {
     const detectTouch = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
     };
 
     detectTouch();
-    window.addEventListener('touchstart', detectTouch, { once: true });
+    window.addEventListener("touchstart", detectTouch, { once: true });
 
     return () => {
-      window.removeEventListener('touchstart', detectTouch);
+      window.removeEventListener("touchstart", detectTouch);
     };
   }, []);
 
@@ -24,7 +26,7 @@ const Skills = ({ skillsRef }) => {
       className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
       ref={skillsRef}
     >
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-8xl">
         {/* Header with improved mobile spacing */}
         <div className="flex flex-col items-center mb-8 sm:mb-12">
           <SectionHeading text="Skill Set"></SectionHeading>
@@ -39,14 +41,15 @@ const Skills = ({ skillsRef }) => {
               skill I've mastered throughout my journey as a software developer.
             </p>
             <p className="text-xs sm:text-sm text-lightText dark:text-darkText opacity-80">
-              {isTouchDevice ? "Tap" : "Hover over"} any book to discover more details.
+              {isTouchDevice ? "Tap" : "Hover over"} any book to discover more
+              details.
             </p>
           </div>
 
           {/* Bookshelf section with responsive width */}
           <div className="w-full sm:w-4/5 lg:w-1/2 flex justify-center px-2 sm:px-4">
-            <Bookshelf 
-              isTouchDevice={isTouchDevice} 
+            <Bookshelf
+              isTouchDevice={isTouchDevice}
               setIsTouchDevice={setIsTouchDevice}
             />
           </div>

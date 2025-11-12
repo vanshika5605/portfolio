@@ -1,176 +1,174 @@
 [
-	{
-		"title": "Travel Planner",
-		"description": "AI-powered platform travel planning platform",
-		"fullDescription": "The Travel Planner Application is an AI-powered platform designed to enhance and simplify the travel planning experience. By leveraging the capabilities of Llama-3.2-3B-Instruct, the application curates personalized itineraries, suggests destinations based on user moods, provides a comprehensive packing checklist, and more.",
-		"image": "travel-planner.jpeg",
-		"tech": [
-			"React.js",
-			"Spring Boot",
-			"MongoDB",
-			"Python",
-			"Flask",
-			"AWS S3"
-		],
-		"features": [
-			"Itinerary Planning",
-			"Smart Packing Assistant",
-			"Trip History",
-			"Admin Dashboard",
-			"Long Weekend Calculator",
-			"Interactive Travel Style Quiz",
-			"Currency Exchange calculator"
-		],
-		"link": "https://github.com/vanshika5605/travel-planner"
-	},
-	{
-		"title": "UMate",
-		"description": "A Roommate Matching Platform for University Students",
-		"fullDescription": "UMate is a web application designed to simplify the process of finding compatible roommates. With UMate, users can easily create a profile, set their preferences, and find potential roommates using our interactive interface similar to dating apps. By using a recommendation model, UMate suggests the top matches based on compatibility factors like the duration of stay, lifestyle, budget, dietary preferences, and more.",
-		"image": "umate.jpeg",
-		"tech": [
-			"React.js",
-			"Spring Boot",
-			"MongoDB",
-			"Machine Learning",
-			"Python",
-			"Flask",
-			"AWS S3"
-		],
-		"features": [
-			"User Profiles",
-			"Recommendation System",
-			"Advanced Filtering for Roommates",
-			"Favourites"
-		],
-		"link": "https://github.com/vanshika5605/UMateFinder"
-	},
-	{
-		"title": "Serenify",
-		"description": "Revolutionizing Dementia Care with Technology",
-		"fullDescription": "Serenify integrates advanced technology to improve dementia care by offering real-time inactivity alerts, GPS tracking for patient movement, and geofencing for safety. Key features include emergency SOS buttons, customizable notifications, and reminders to support both patients and caregivers in maintaining safety and daily routines.",
-		"image": "serenify.jpeg",
-		"tech": [
-			"Java",
-			"Spring Boot",
-			"React.js",
-			"Flask",
-			"Geofencing",
-			"GeoLocation API",
-			"Python",
-			"PostgreSQL",
-			"WebSocket"
-		],
-		"features": [
-			"Real-time inactivity alerts",
-			"Deviation and Danger zone alerts by tracking patient movements",
-			"Emergency Response system",
-			"Customizable System Preferences",
-			"Daily Reminders",
-			"Customizable dashboard"
-		],
-		"link": "https://github.com/vanshika5605/Serenify"
-	},
-	{
-		"title": "Multi Level Identity Authentication Framework",
-		"description": "3-tier security web app",
-		"fullDescription": "A 3-tier security web app, integrating Facial Recognition and Signature Verification for enhanced authentication. Designed Facial and Signature Recognition algorithms using Haarcascade, LBPH, and SSIM models, improving real-time verification accuracy and reducing false positives in identity checks by 20%.",
-		"image": "identity-authentication.png",
-		"tech": [
-			"Python",
-			"Django",
-			"Machine Learning",
-			"HTML5",
-			"CSS"
-		],
-		"features": [
-			"Password Authentication",
-			"Signature Recognition and Validation",
-			"Face Recognition"
-		],
-		"link": "https://github.com/vanshika5605/Multi-Level-Identity-Authentication-Framework"
-	},
   {
-		"title": "Virtual Hospital",
-		"description": "Bridging gaps between patients and doctors",
-		"fullDescription": "The aim of this project is to make the interaction of patients and doctors convenient and more organized. This platform is built keeping in mind the problems and hassles one has to face while using any medical facility via hospitals. Living in the post-covid era, the need for this ever more - a place where you can get diagnosed and get help without stepping out of the comfort of your house.",
-		"image": "virtual-hospital.png",
-		"tech": [
-			"HTML",
-			"CSS",
-			"Bootstrap",
-			"Javascript",
-			"Spring Boot",
+    "title": "Eco Score",
+    "description": "AI-powered mobile platform that converts carbon footprint into cash rewards and tiers.",
+    "fullDescription": "EcoScore is a comprehensive mobile application designed to transform environmental accountability. It tracks a user's carbon footprint across daily activities (Shopping, Transportation, Energy Use) using advanced OCR and LLM estimation. The platform then assigns a universal 'EcoScore' that places users in a percentile-based reward tier (Bronze to Platinum), unlocking increasing levels of real cashback and discounts. The goal is to make sustainability effortless, financially rewarding, and highly competitive.",
+    "image": "ecoscore-dashboard.jpeg",
+    "tech": [
+      "React Native + Expo",
+      "Python",
+      "FastAPI",
+      "Google Cloud Vision API",
+      "OpenAI GPT-4o-mini",
+      "Regex/Heuristics (for parsing)"
+    ],
+    "features": [
+      "Receipt and Utility Bill OCR Scanner",
+      "LLM-Powered CO₂e Estimation",
+      "Percentile Ranking and Tier System",
+      "Real Cashback and Reward Redemption",
+      "Tracking for Shopping, Energy, and Transportation",
+      "Cross-Platform Mobile App (iOS/Android)"
+    ],
+    "link": "https://github.com/devyanigoil/EcoScore"
+  },
+  {
+    "title": "Travel Planner",
+    "description": "AI-powered platform travel planning platform",
+    "fullDescription": "The Travel Planner Application is an AI-powered platform designed to enhance and simplify the travel planning experience. By leveraging the capabilities of Llama-3.2-3B-Instruct, the application curates personalized itineraries, suggests destinations based on user moods, provides a comprehensive packing checklist, and more.",
+    "image": "travel-planner.jpeg",
+    "tech": ["React.js", "Spring Boot", "MongoDB", "Python", "Flask", "AWS S3"],
+    "features": [
+      "Itinerary Planning",
+      "Smart Packing Assistant",
+      "Trip History",
+      "Admin Dashboard",
+      "Long Weekend Calculator",
+      "Interactive Travel Style Quiz",
+      "Currency Exchange calculator"
+    ],
+    "link": "https://github.com/vanshika5605/travel-planner"
+  },
+  {
+    "title": "UMate",
+    "description": "A Roommate Matching Platform for University Students",
+    "fullDescription": "UMate is a web application designed to simplify the process of finding compatible roommates. With UMate, users can easily create a profile, set their preferences, and find potential roommates using our interactive interface similar to dating apps. By using a recommendation model, UMate suggests the top matches based on compatibility factors like the duration of stay, lifestyle, budget, dietary preferences, and more.",
+    "image": "umate.jpeg",
+    "tech": [
+      "React.js",
+      "Spring Boot",
+      "MongoDB",
+      "Machine Learning",
+      "Python",
+      "Flask",
+      "AWS S3"
+    ],
+    "features": [
+      "User Profiles",
+      "Recommendation System",
+      "Advanced Filtering for Roommates",
+      "Favourites"
+    ],
+    "link": "https://github.com/vanshika5605/UMateFinder"
+  },
+  {
+    "title": "Serenify",
+    "description": "Revolutionizing Dementia Care with Technology",
+    "fullDescription": "Serenify integrates advanced technology to improve dementia care by offering real-time inactivity alerts, GPS tracking for patient movement, and geofencing for safety. Key features include emergency SOS buttons, customizable notifications, and reminders to support both patients and caregivers in maintaining safety and daily routines.",
+    "image": "serenify.jpeg",
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "React.js",
+      "Flask",
+      "Geofencing",
+      "GeoLocation API",
+      "Python",
+      "PostgreSQL",
+      "WebSocket"
+    ],
+    "features": [
+      "Real-time inactivity alerts",
+      "Deviation and Danger zone alerts by tracking patient movements",
+      "Emergency Response system",
+      "Customizable System Preferences",
+      "Daily Reminders",
+      "Customizable dashboard"
+    ],
+    "link": "https://github.com/vanshika5605/Serenify"
+  },
+  {
+    "title": "Multi Level Identity Authentication Framework",
+    "description": "3-tier security web app",
+    "fullDescription": "A 3-tier security web app, integrating Facial Recognition and Signature Verification for enhanced authentication. Designed Facial and Signature Recognition algorithms using Haarcascade, LBPH, and SSIM models, improving real-time verification accuracy and reducing false positives in identity checks by 20%.",
+    "image": "identity-authentication.png",
+    "tech": ["Python", "Django", "Machine Learning", "HTML5", "CSS"],
+    "features": [
+      "Password Authentication",
+      "Signature Recognition and Validation",
+      "Face Recognition"
+    ],
+    "link": "https://github.com/vanshika5605/Multi-Level-Identity-Authentication-Framework"
+  },
+  {
+    "title": "Virtual Hospital",
+    "description": "Bridging gaps between patients and doctors",
+    "fullDescription": "The aim of this project is to make the interaction of patients and doctors convenient and more organized. This platform is built keeping in mind the problems and hassles one has to face while using any medical facility via hospitals. Living in the post-covid era, the need for this ever more - a place where you can get diagnosed and get help without stepping out of the comfort of your house.",
+    "image": "virtual-hospital.png",
+    "tech": [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Javascript",
+      "Spring Boot",
       "My SQL",
       "WebSocket",
       "WebRTC"
-		],
-		"features": [
-			"Appointment Booking and History",
-			"Medical History Management",
-			"Prescription Generation",
+    ],
+    "features": [
+      "Appointment Booking and History",
+      "Medical History Management",
+      "Prescription Generation",
       "Helpdesk",
       "SOS facilities for therapists",
       "Email notifications",
       "Online Appointment Meeting"
-		],
-		"link": "https://github.com/vanshika5605/VirtualHospital"
-	},
+    ],
+    "link": "https://github.com/vanshika5605/VirtualHospital"
+  },
   {
-		"title": "Stance Detection",
-		"description": "Sentiment Analysis and Sarcasm Detection",
-		"fullDescription": "The created system analyses the posts that user post on the given web platform and analyse it according to the model previously trained and displays the stance of the post while mentioning its target and to show the extent of correctness ofthe same, sentiment and sarcasm detection of the same post have also been incorporated.",
-		"image": "stance-detection.png",
-		"tech": [
-			"Python",
-			"Machine Learning",
-			"Natural Language Processing"
-		],
-		"features": [
-			"Constructed an attention-based framework for Stance Detection using Python for sentiment classification.",
-			"Employed NLP techniques to process textual data used for training purposes.",
-			"Engineered a Sarcasm Detection layer using the LSVC model, resulting in a 30% increase in nuanced language analysis."
-		],
-		"link": "https://github.com/vanshika5605/Stance-Detection"
-	},
+    "title": "Stance Detection",
+    "description": "Sentiment Analysis and Sarcasm Detection",
+    "fullDescription": "The created system analyses the posts that user post on the given web platform and analyse it according to the model previously trained and displays the stance of the post while mentioning its target and to show the extent of correctness ofthe same, sentiment and sarcasm detection of the same post have also been incorporated.",
+    "image": "stance-detection.png",
+    "tech": ["Python", "Machine Learning", "Natural Language Processing"],
+    "features": [
+      "Constructed an attention-based framework for Stance Detection using Python for sentiment classification.",
+      "Employed NLP techniques to process textual data used for training purposes.",
+      "Engineered a Sarcasm Detection layer using the LSVC model, resulting in a 30% increase in nuanced language analysis."
+    ],
+    "link": "https://github.com/vanshika5605/Stance-Detection"
+  },
   {
-		"title": "Thrift",
-		"description": "A sustainable way to rebuilt your closet",
-		"fullDescription": "Thrift is a web application for your closet, your wallet and your planet. It is a one-stop shop for renting, re-selling and thrifting. Our web app resells clothing and other personal items at a reasonable price. It helps you find a sustainable way to renovate your closet. The big difference between a thrift store and a retail store is that the items for sale at a thrift store aren’t new but that doesn’t mean they aren’t in a good condition. Thrifting is a way of giving these items a new life and at the same time minimizing our carbon footprint to take small steps towards a better future.",
-		"image": "thrift.png",
-		"tech": [
-			"HTML5",
-			"CSS",
-			"Bootstrap",
+    "title": "Thrift",
+    "description": "A sustainable way to rebuilt your closet",
+    "fullDescription": "Thrift is a web application for your closet, your wallet and your planet. It is a one-stop shop for renting, re-selling and thrifting. Our web app resells clothing and other personal items at a reasonable price. It helps you find a sustainable way to renovate your closet. The big difference between a thrift store and a retail store is that the items for sale at a thrift store aren’t new but that doesn’t mean they aren’t in a good condition. Thrifting is a way of giving these items a new life and at the same time minimizing our carbon footprint to take small steps towards a better future.",
+    "image": "thrift.png",
+    "tech": [
+      "HTML5",
+      "CSS",
+      "Bootstrap",
       "JavaScript",
       "Python",
       "Django",
       "Machine Learning",
       "SQL Lite"
-		],
-		"features": [
-			"Resale portal",
-			"Rent Portal",
-			"Automated Messaging System using Twilio",
+    ],
+    "features": [
+      "Resale portal",
+      "Rent Portal",
+      "Automated Messaging System using Twilio",
       "User Feedback Driven Recommendation system"
-		],
-		"link": "https://github.com/vanshika5605/Thrift"
-	},
+    ],
+    "link": "https://github.com/vanshika5605/Thrift"
+  },
   {
-		"title": "Expense Tracker",
-		"description": "",
-		"fullDescription": "A system designed to keep track of the expenses bared by the user’s pocket, the money borrowed, lent and provide the user statistics based on the budget they set.",
-		"image": "expense-tracker.png",
-		"tech": [
-			"HTML5",
-			"CSS",
-			"PHP",
-      "JavaScript",
-      "MySQL"
-		],
-		"features": [
-			
-		],
-		"link": "https://github.com/vanshika5605/Expense-Tracker"
-	}
+    "title": "Expense Tracker",
+    "description": "",
+    "fullDescription": "A system designed to keep track of the expenses bared by the user’s pocket, the money borrowed, lent and provide the user statistics based on the budget they set.",
+    "image": "expense-tracker.png",
+    "tech": ["HTML5", "CSS", "PHP", "JavaScript", "MySQL"],
+    "features": [],
+    "link": "https://github.com/vanshika5605/Expense-Tracker"
+  }
 ]

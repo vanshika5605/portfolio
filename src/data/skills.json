@@ -1,234 +1,263 @@
 [
-	{
-		"name": "",
-		"categories": [
-			{
-				"name": "Frontend",
-				"color": "#4A90E2",
-				"skills": [
-					{
-						"name": "JavaScript",
-						"proficiency": 95,
-						"years": "4 years",
-						"projects": 15
-					},
-					{
-						"name": "HTML",
-						"proficiency": 100,
-						"years": "5 years",
-						"projects": 20
-					},
-					{
-						"name": "CSS/SASS",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 20
-					}
-				]
-			},
-			{
-				"name": "Backend",
-				"color": "#50C878",
-				"skills": [
-					{
-						"name": "Java",
-						"proficiency": 90,
-						"years": "5 years",
-						"projects": 12
-					},
-					{
-						"name": "C++",
-						"proficiency": 90,
-						"years": "3 years",
-						"projects": 6
-					},
-					{
-						"name": "Python",
-						"proficiency": 60,
-						"years": "4 years",
-						"projects": 8
-					},
-					{
-						"name": "SQL",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 20
-					},
-					{
-						"name": "PHP",
-						"proficiency": 90,
-						"years": "5 years",
-						"projects": 20
-					}
-				]
-			}
-		]
-	},
-	{
-		"name": "",
-		"categories": [
-			{
-				"name": "Frameworks",
-				"color": "#E24A8D",
-				"skills": [
-					{
-						"name": "SpringBoot",
-						"proficiency": 90,
-						"years": "4 years",
-						"projects": 10
-					},
-					{
-						"name": "React.js",
-						"proficiency": 95,
-						"years": "3 years",
-						"projects": 12
-					},
-					{
-						"name": "Django",
-						"proficiency": 80,
-						"years": "3 years",
-						"projects": 7
-					},
-					{
-						"name": "Bootstrap",
-						"proficiency": 95,
-						"years": "4 years",
-						"projects": 15
-					}
-				]
-			},
-			{
-				"name": "Technologies",
-				"color": "#9B51E0",
-				"skills": [
-					{
-						"name": "WebSocket",
-						"proficiency": 90,
-						"years": "3 years",
-						"projects": 12
-					},
-					{
-						"name": "ActiveMQ",
-						"proficiency": 70,
-						"years": "3 years",
-						"projects": 12
-					},
-					{
-						"name": "Apache Spark",
-						"proficiency": 70,
-						"years": "3 years",
-						"projects": 12
-					},
-					{
-						"name": "Wijmo",
-						"proficiency": 70,
-						"years": "3 years",
-						"projects": 12
-					}
-				]
-			},
-			{
-				"name": "Database",
-				"color": "#E24A8D",
-				"skills": [
-					{
-						"name": "Oracle",
-						"proficiency": 85,
-						"years": "4 years",
-						"projects": 8
-					},
-					{
-						"name": "MongoDB",
-						"proficiency": 75,
-						"years": "3 years",
-						"projects": 6
-					},
-					{
-						"name": "Neo4j",
-						"proficiency": 60,
-						"years": "2 years",
-						"projects": 4
-					}
-				]
-			}
-		]
-	},
-	{
-		"name": "",
-		"categories": [
-			
-			{
-				"name": "Tools",
-				"color": "#9B51E0",
-				"skills": [
-					{
-						"name": "Git",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 25
-					},
-					{
-						"name": "GitHub",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 25
-					},
-					{
-						"name": "Bitbucket",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 25
-					},
-					{
-						"name": "Jira",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 25
-					},
-					{
-						"name": "JUnit",
-						"proficiency": 90,
-						"years": "5 years",
-						"projects": 25
-					},
-					{
-						"name": "Jest",
-						"proficiency": 90,
-						"years": "5 years",
-						"projects": 25
-					}
-				]
-			},
-			{
-				"name": "Concepts",
-				"color": "pink",
-				"skills": [
-					{
-						"name": "Microservices",
-						"proficiency": 85,
-						"years": "4 years",
-						"projects": 8
-					},
-					{
-						"name": "SDLC",
-						"proficiency": 80,
-						"years": "3 years",
-						"projects": 6
-					},
-					{
-						"name": "Agile Methods",
-						"proficiency": 80,
-						"years": "2 years",
-						"projects": 4
-					},
-					{
-						"name": "UI Design",
-						"proficiency": 95,
-						"years": "5 years",
-						"projects": 25
-					}
-				]
-			}
-		]
-	}
+  {
+    "name": "",
+    "categories": [
+      {
+        "name": "Backend",
+        "color": "#50C878",
+        "skills": [
+          {
+            "name": "Java",
+            "proficiency": 90,
+            "years": "5 years",
+            "projects": 12
+          },
+          {
+            "name": "Python",
+            "proficiency": 60,
+            "years": "4 years",
+            "projects": 8
+          },
+          {
+            "name": "C++",
+            "proficiency": 90,
+            "years": "3 years",
+            "projects": 6
+          },
+          {
+            "name": "Golang",
+            "proficiency": 90,
+            "years": "3 years",
+            "projects": 6
+          },
+          {
+            "name": "SpringBoot",
+            "proficiency": 90,
+            "years": "4 years",
+            "projects": 10
+          },
+          {
+            "name": "Flask",
+            "proficiency": 95,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "Django",
+            "proficiency": 80,
+            "years": "3 years",
+            "projects": 7
+          },
+          {
+            "name": "WebSocket",
+            "proficiency": 90,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "ActiveMQ",
+            "proficiency": 70,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "Docker",
+            "proficiency": 90,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "Kubernetes",
+            "proficiency": 70,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "JUnit",
+            "proficiency": 90,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "PHP",
+            "proficiency": 90,
+            "years": "5 years",
+            "projects": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "",
+    "categories": [
+      {
+        "name": "Frontend",
+        "color": "#4A90E2",
+        "skills": [
+          {
+            "name": "React.js",
+            "proficiency": 95,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "JavaScript",
+            "proficiency": 95,
+            "years": "4 years",
+            "projects": 15
+          },
+          {
+            "name": "HTML",
+            "proficiency": 100,
+            "years": "5 years",
+            "projects": 20
+          },
+          {
+            "name": "CSS/SASS",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 20
+          },
+          {
+            "name": "React Native",
+            "proficiency": 95,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "Bootstrap",
+            "proficiency": 95,
+            "years": "4 years",
+            "projects": 15
+          },
+          {
+            "name": "Wijmo",
+            "proficiency": 70,
+            "years": "3 years",
+            "projects": 12
+          },
+          {
+            "name": "Jest",
+            "proficiency": 90,
+            "years": "5 years",
+            "projects": 25
+          }
+        ]
+      },
+      {
+        "name": "Database",
+        "color": "#E24A8D",
+        "skills": [
+          {
+            "name": "SQL",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 20
+          },
+          {
+            "name": "Oracle",
+            "proficiency": 85,
+            "years": "4 years",
+            "projects": 8
+          },
+          {
+            "name": "MongoDB",
+            "proficiency": 75,
+            "years": "3 years",
+            "projects": 6
+          },
+          {
+            "name": "Neo4j",
+            "proficiency": 60,
+            "years": "2 years",
+            "projects": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "",
+    "categories": [
+      {
+        "name": "Cloud Tech & Devops",
+        "color": "#9B51E0",
+        "skills": [
+          {
+            "name": "AWS",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "Linux/Unix",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "CI/CD",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "Jenkins",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "Groovy",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "Git",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          },
+          {
+            "name": "Bash Scripting",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          }
+        ]
+      },
+      {
+        "name": "Concepts",
+        "color": "pink",
+        "skills": [
+          {
+            "name": "Microservices",
+            "proficiency": 85,
+            "years": "4 years",
+            "projects": 8
+          },
+          {
+            "name": "SDLC",
+            "proficiency": 80,
+            "years": "3 years",
+            "projects": 6
+          },
+          {
+            "name": "Agile Methods",
+            "proficiency": 80,
+            "years": "2 years",
+            "projects": 4
+          },
+          {
+            "name": "UI Design",
+            "proficiency": 95,
+            "years": "5 years",
+            "projects": 25
+          }
+        ]
+      }
+    ]
+  }
 ]

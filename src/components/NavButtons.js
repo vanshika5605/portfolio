@@ -12,7 +12,7 @@ const NavButtons = ({ setTheme, theme, class1, class2 }) => {
       <button
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         className={[
-            class1,
+          class1,
           "p-2 rounded-full bg-purple-300 dark:bg-purple-900 shadow-lg hover:bg-purple-700 dark:hover:bg-purple-500 transition-colors duration-200",
         ].join(" ")}
         aria-label="Toggle theme"
@@ -26,7 +26,7 @@ const NavButtons = ({ setTheme, theme, class1, class2 }) => {
       <button
         onClick={handleDownloadResume}
         className={[
-            class2,
+          class2,
           "p-2 rounded-full bg-purple-300 dark:bg-purple-900 shadow-lg hover:bg-purple-700 dark:hover:bg-purple-500 transition-colors duration-200 flex items-center gap-2",
         ].join(" ")}
       >

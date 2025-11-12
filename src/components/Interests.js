@@ -62,11 +62,10 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
     >
       <div className="p-8">
         <SectionHeading text="What Interests Me"></SectionHeading>
-      
 
         <div
           className={`flex flex-wrap gap-4 justify-center 
-          ${isLargeScreen ? "max-w-6xl" : "max-w-md"} mx-auto relative`}
+          ${isLargeScreen ? "max-w-8xl" : "max-w-md"} mx-auto relative`}
         >
           {interests.map((interest, index) => (
             <div
