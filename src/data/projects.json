@@ -20,7 +20,9 @@
       "Tracking for Shopping, Energy, and Transportation",
       "Cross-Platform Mobile App (iOS/Android)"
     ],
-    "link": "https://github.com/devyanigoil/EcoScore"
+    "link": "https://github.com/vanshika5605/EcoScore",
+    "hasVideoDemo": true,
+    "videoDemoLink": "https://youtu.be/yKWPM9PLzlo"
   },
   {
     "title": "Travel Planner",
@@ -37,7 +39,9 @@
       "Interactive Travel Style Quiz",
       "Currency Exchange calculator"
     ],
-    "link": "https://github.com/vanshika5605/travel-planner"
+    "link": "https://github.com/vanshika5605/travel-planner",
+    "hasVideoDemo": true,
+    "videoDemoLink": "https://drive.google.com/file/d/16Z2IUn3nuYQjUEDLXxhnpP7U1M_sfy6B/view?usp=sharing"
   },
   {
     "title": "UMate",
@@ -59,7 +63,9 @@
       "Advanced Filtering for Roommates",
       "Favourites"
     ],
-    "link": "https://github.com/vanshika5605/UMateFinder"
+    "link": "https://github.com/vanshika5605/UMateFinder",
+    "hasVideoDemo": true,
+    "videoDemoLink": "https://drive.google.com/file/d/1vyIsDAp8QxKZ619tc18QEW1A_Plb-XPO/view?usp=sharing"
   },
   {
     "title": "Serenify",
@@ -86,6 +92,31 @@
       "Customizable dashboard"
     ],
     "link": "https://github.com/vanshika5605/Serenify"
+  },
+  {
+    "title": "Thrift",
+    "description": "A sustainable way to rebuilt your closet",
+    "fullDescription": "Thrift is a web application for your closet, your wallet and your planet. It is a one-stop shop for renting, re-selling and thrifting. Our web app resells clothing and other personal items at a reasonable price. It helps you find a sustainable way to renovate your closet. The big difference between a thrift store and a retail store is that the items for sale at a thrift store aren’t new but that doesn’t mean they aren’t in a good condition. Thrifting is a way of giving these items a new life and at the same time minimizing our carbon footprint to take small steps towards a better future.",
+    "image": "thrift.png",
+    "tech": [
+      "HTML5",
+      "CSS",
+      "Bootstrap",
+      "JavaScript",
+      "Python",
+      "Django",
+      "Machine Learning",
+      "SQL Lite"
+    ],
+    "features": [
+      "Resale portal",
+      "Rent Portal",
+      "Automated Messaging System using Twilio",
+      "User Feedback Driven Recommendation system"
+    ],
+    "link": "https://github.com/vanshika5605/Thrift",
+    "hasVideoDemo": true,
+    "videoDemoLink": "https://youtu.be/-ey33k1tc4g"
   },
   {
     "title": "Multi Level Identity Authentication Framework",
@@ -138,29 +169,6 @@
       "Engineered a Sarcasm Detection layer using the LSVC model, resulting in a 30% increase in nuanced language analysis."
     ],
     "link": "https://github.com/vanshika5605/Stance-Detection"
-  },
-  {
-    "title": "Thrift",
-    "description": "A sustainable way to rebuilt your closet",
-    "fullDescription": "Thrift is a web application for your closet, your wallet and your planet. It is a one-stop shop for renting, re-selling and thrifting. Our web app resells clothing and other personal items at a reasonable price. It helps you find a sustainable way to renovate your closet. The big difference between a thrift store and a retail store is that the items for sale at a thrift store aren’t new but that doesn’t mean they aren’t in a good condition. Thrifting is a way of giving these items a new life and at the same time minimizing our carbon footprint to take small steps towards a better future.",
-    "image": "thrift.png",
-    "tech": [
-      "HTML5",
-      "CSS",
-      "Bootstrap",
-      "JavaScript",
-      "Python",
-      "Django",
-      "Machine Learning",
-      "SQL Lite"
-    ],
-    "features": [
-      "Resale portal",
-      "Rent Portal",
-      "Automated Messaging System using Twilio",
-      "User Feedback Driven Recommendation system"
-    ],
-    "link": "https://github.com/vanshika5605/Thrift"
   },
   {
     "title": "Expense Tracker",

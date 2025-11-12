@@ -68,15 +68,46 @@ const ProjectModal = ({ project, onClose }) => {
                 </div>
               </div>
             </div>
-
-            <a
-              href={project.link}
-              className="inline-block mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Source Code
-            </a>
+            <div className="flex flex-wrap gap-4 mt-6">
+              <a
+                href={project.link}
+                className="px-4 py-2 text-white rounded-lg transition-colors"
+                style={{
+                  backgroundColor: "var(--primary-color)",
+                  color: "var(--text-color)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = "0.8";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Source Code
+              </a>
+              {project.hasVideoDemo === true && (
+                <a
+                  href={project.videoDemoLink}
+                  className="px-4 py-2 text-white rounded-lg transition-colors"
+                  style={{
+                    backgroundColor: "var(--secondary-color)",
+                    color: "var(--text-color)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = "0.8";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = "1";
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Demo
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
