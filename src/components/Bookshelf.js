@@ -1,4 +1,3 @@
-import { Calendar, Code } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import shelves from "../data/skills.json";
 

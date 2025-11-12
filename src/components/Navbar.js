@@ -1,15 +1,11 @@
 import {
   BookOpen,
   Briefcase,
-  Download,
   FolderDot,
   Lightbulb,
   Mail,
   MessageCircleHeart,
-  Moon,
-  Sun,
 } from "lucide-react";
-import React from "react";
 import NavButtons from "./NavButtons";
 
 const Navbar = ({
@@ -85,7 +81,11 @@ const Navbar = ({
                 onClick={() => scrollToSection(ref)}
                 className={`
                   p-2 flex flex-col items-center space-y-1 relative
-                  ${activeSection === section ? "text-purple-700 dark:text-purple-300" : ""}
+                  ${
+                    activeSection === section
+                      ? "text-purple-700 dark:text-purple-300"
+                      : ""
+                  }
                 `}
               >
                 <Icon className="w-6 h-6" />
@@ -123,9 +123,9 @@ const Navbar = ({
                 </button>
               ))}
             </div>
-            
+
             <div className="flex items-center space-x-4">
-              <NavButtons theme={theme} setTheme={setTheme}/>
+              <NavButtons theme={theme} setTheme={setTheme} />
             </div>
           </div>
         </div>

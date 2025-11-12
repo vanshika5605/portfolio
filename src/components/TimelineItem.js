@@ -1,30 +1,36 @@
-import React, {useState} from "react";
+import { useState } from "react";
 import { Award, Briefcase, ChevronDown, ChevronUp, MapPin } from "lucide-react";
-import experiences from "../data/experiences.json";
 
 const TimelineItem = ({ experience, isEven }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`
+    <div
+      className={`
       flex items-start
       ${isEven ? "flex-row" : "flex-row-reverse"}
       md:flex-row md:even:flex-row-reverse
       flex-col
-    `}>
+    `}
+    >
       {/* Content section */}
       <div className="w-full md:w-1/2 flex items-start">
-        <div className={`
+        <div
+          className={`
           flex-1 p-4 md:p-6 my-2 md:my-4
           ${isEven ? "md:text-right md:pr-8" : "md:text-left md:pl-8"}
           cursor-pointer
           transition-all duration-300
-          ${isExpanded 
-            ? "bg-[#f5e6d3] dark:bg-[#2a1f1a] rounded-lg shadow-md border-4 border-[#8B4513] dark:border-[#523124]" 
-            : ""}
-        `}>
+          ${
+            isExpanded
+              ? "bg-[#f5e6d3] dark:bg-[#2a1f1a] rounded-lg shadow-md border-4 border-[#8B4513] dark:border-[#523124]"
+              : ""
+          }
+        `}
+        >
           {/* Content remains the same but with responsive classes */}
-          <div className={`
+          <div
+            className={`
             flex items-center gap-2 mb-2 
             bg-[#e8d1c0] dark:bg-[#3d2b1f] 
             p-3 rounded-lg
@@ -32,8 +38,12 @@ const TimelineItem = ({ experience, isEven }) => {
             ${isEven ? "md:flex-row-reverse" : "md:flex-row"}
             flex-row
           `}
-          onClick={() => setIsExpanded(!isExpanded)}>
-            <Briefcase size={20} className="text-[#8B4513] dark:text-[#b8997a] flex-shrink-0" />
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <Briefcase
+              size={20}
+              className="text-[#8B4513] dark:text-[#b8997a] flex-shrink-0"
+            />
             <div className="font-bold text-lg text-[#654321] dark:text-[#b8997a]">
               {experience.role}
             </div>
@@ -62,7 +72,7 @@ const TimelineItem = ({ experience, isEven }) => {
             >
               {experience.year}
             </div>
-            
+
             <div
               className={`
                 bg-[#e8d1c0] dark:bg-[#3d2b1f]
@@ -92,10 +102,7 @@ const TimelineItem = ({ experience, isEven }) => {
                           key={idx}
                           className="flex items-start gap-2 text-[#8B4513] dark:text-[#b8997a]"
                         >
-                          <Award
-                            size={16}
-                            className="mt-1 flex-shrink-0"
-                          />
+                          <Award size={16} className="mt-1 flex-shrink-0" />
                           <span>{achievement}</span>
                         </li>
                       ))}

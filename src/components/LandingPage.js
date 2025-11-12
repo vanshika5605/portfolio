@@ -1,5 +1,5 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Contact from "./Contact";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -20,8 +20,6 @@ const LandingPage = () => {
   const experienceRef = useRef(null);
   const educationRef = useRef(null);
   const projectsRef = useRef(null);
-  const positionsOfResponsibilityRef = useRef(null);
-  const certificationsRef = useRef(null);
   const contactRef = useRef(null);
 
   useEffect(() => {
