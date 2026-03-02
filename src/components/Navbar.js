@@ -45,18 +45,18 @@ const Navbar = ({
       section: "projects",
     },
     {
-      ref: educationRef,
-      icon: BookOpen,
-      label: "Education",
-      section: "education",
-    },
-    {
       ref: experienceRef,
       icon: Briefcase,
       label: "Experience",
       section: "experience",
     },
     { ref: skillsRef, icon: Lightbulb, label: "Skills", section: "skills" },
+    {
+      ref: educationRef,
+      icon: BookOpen,
+      label: "Education",
+      section: "education",
+    },
     { ref: contactRef, icon: Mail, label: "Contact", section: "contact" },
   ];
 
@@ -65,8 +65,8 @@ const Navbar = ({
       className={`
       ${
         isLargeScreen
-          ? "fixed top-8 left-0 right-0 z-50 theme-transition"
-          : "fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 theme-transition shadow-lg"
+          ? "fixed top-0 left-0 right-0 z-50 theme-transition bg-lightBg/80 dark:bg-darkBg/80 backdrop-blur-md shadow-sm"
+          : "fixed bottom-0 left-0 right-0 z-50 bg-lightPrimaryColor dark:bg-darkPrimaryColor theme-transition shadow-lg border-t border-[#b08968] dark:border-[#a07840]"
       }
       theme-transition
     `}

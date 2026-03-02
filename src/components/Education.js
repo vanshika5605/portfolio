@@ -14,6 +14,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
     >
       <div>
         <div className="relative bg-[#e8d1c0] dark:bg-[#3d2b1f] p-12 rounded-lg shadow-inner text-lightText dark:text-darkText">
+          {/* Brick pattern */}
           <div
             className="absolute inset-0 rounded-lg opacity-90 dark:opacity-20"
             style={{
@@ -30,113 +31,158 @@ const Education = ({ educationRef, isLargeScreen }) => {
             }}
           />
 
+          {/* Grid overlay */}
           <div
             className="absolute inset-0 rounded-lg opacity-20 dark:opacity-30"
             style={{
               backgroundImage: `
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)
+                linear-gradient(#0004 1px, transparent 1px),
+                linear-gradient(90deg, #0004 1px, transparent 1px)
               `,
               backgroundSize: "29px 15px",
-              "--grid-color": "var(--tw-prose-pre-bg, #000)",
               zIndex: 2,
             }}
           />
 
           <div className="relative" style={{ zIndex: 3 }}>
-            <SectionHeading text="Academic Journey"></SectionHeading>
+            <SectionHeading text="On the Wall" subtitle="Education" />
           </div>
 
           <div
             className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 relative"
             style={{ zIndex: 3 }}
           >
-            {education.map((edu, index) => (
+            {education.map((edu) => (
               <div
                 key={edu.id}
                 className="relative group min-h-[320px]"
                 style={{ zIndex: 4 }}
               >
+                {/* Drop shadow */}
                 <div
                   className="absolute inset-0 bg-black opacity-20 blur-md transform translate-y-2 translate-x-2"
                   style={{ zIndex: 5 }}
                 />
 
+                {/* Frame card */}
                 <div
-                  className={`relative bg-[#f5e6d3] dark:bg-[#2a1f1a] p-4 rounded-lg transition-all duration-500
-                    ${activeFrame === edu.id ? "scale-105" : "hover:scale-102"}
-                    cursor-pointer shadow-xl border-8 border-[#8B4513] dark:border-[#523124]
-                    before:content-[''] before:absolute before:top-0 before:left-2 before:right-2 before:h-2 
-                    before:bg-[#d4b595] dark:before:bg-[#3d2b1f] before:rounded-t-lg
-                    after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-2 
-                    after:bg-[#d4b595] dark:after:bg-[#3d2b1f] after:rounded-b-lg`}
+                  className={`relative p-4 rounded-lg transition-all duration-500 cursor-pointer shadow-xl
+                    ${activeFrame === edu.id ? "scale-105" : "hover:scale-102"}`}
                   onClick={() =>
                     setActiveFrame(activeFrame === edu.id ? null : edu.id)
                   }
                   style={{
-                    boxShadow: "inset 0 0 20px rgba(0,0,0,0.2)",
+                    backgroundColor: "var(--primary-color)",
+                    border: "8px solid var(--border-color)",
+                    boxShadow: "inset 0 0 20px rgba(0,0,0,0.15)",
                     minHeight: "320px",
-                    transform: `rotate${
-                      activeFrame === edu.id ? "X(0deg)" : "X(5deg)"
-                    }`,
+                    transform: `rotateX(${activeFrame === edu.id ? "0deg" : "5deg"})`,
                     transformOrigin: "top",
                     zIndex: 6,
                   }}
                 >
-                  {/* Rest of the component stays the same */}
-                  {/* ... Existing card content ... */}
-                  <div className="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-tl-lg" />
-                  <div className="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-[#A0522D] dark:border-[#614434] rounded-tr-lg" />
-                  <div className="absolute bottom-2 left-2 w-6 h-6 border-b-4 border-l-4 border-[#A0522D] dark:border-[#614434] rounded-bl-lg" />
-                  <div className="absolute bottom-2 right-2 w-6 h-6 border-b-4 border-r-4 border-[#A0522D] dark:border-[#614434] rounded-br-lg" />
+                  {/* Frame top/bottom inner accent strips */}
+                  <div
+                    className="absolute top-0 left-2 right-2 h-2 rounded-t-lg"
+                    style={{ backgroundColor: "var(--secondary-color)" }}
+                  />
+                  <div
+                    className="absolute bottom-0 left-2 right-2 h-2 rounded-b-lg"
+                    style={{ backgroundColor: "var(--secondary-color)" }}
+                  />
 
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-transparent dark:from-gray-800 opacity-30 rounded-lg pointer-events-none" />
+                  {/* Corner decorations */}
+                  <div
+                    className="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 rounded-tl-lg"
+                    style={{ borderColor: "var(--border-color)" }}
+                  />
+                  <div
+                    className="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 rounded-tr-lg"
+                    style={{ borderColor: "var(--border-color)" }}
+                  />
+                  <div
+                    className="absolute bottom-2 left-2 w-6 h-6 border-b-4 border-l-4 rounded-bl-lg"
+                    style={{ borderColor: "var(--border-color)" }}
+                  />
+                  <div
+                    className="absolute bottom-2 right-2 w-6 h-6 border-b-4 border-r-4 rounded-br-lg"
+                    style={{ borderColor: "var(--border-color)" }}
+                  />
 
+
+                  {/* Content */}
                   <div className="relative" style={{ zIndex: 7 }}>
                     <div className="text-center mb-2">
                       <div className="flex justify-center mb-2">
-                        <GraduationCap className="w-8 h-8 text-[#8B4513] dark:text-[#b8997a]" />
+                        <GraduationCap
+                          className="w-8 h-8"
+                          style={{ color: "var(--border-color)" }}
+                        />
                       </div>
-                      <span className="text-xs font-medium text-[#8B4513] dark:text-[#b8997a]">
+
+                      <span
+                        className="text-xs font-medium"
+                        style={{ color: "var(--border-color)" }}
+                      >
                         {edu.type}
                       </span>
 
                       <div className="relative mt-1 mb-2 py-2 px-4">
-                        <h3 className="text-lg font-serif text-[#654321] dark:text-[#b8997a]">
+                        <h3
+                          className="text-lg font-heading"
+                          style={{ color: "var(--text-color)" }}
+                        >
                           {edu.degree}
                         </h3>
                       </div>
 
-                      <p className="text-[#8B4513] dark:text-[#b8997a] font-semibold text-sm">
+                      <p
+                        className="font-semibold text-sm"
+                        style={{ color: "var(--text-color)" }}
+                      >
                         {edu.institution}
                       </p>
-                      <div className="flex items-center justify-center gap-1 text-[#654321] dark:text-[#b8997a] mt-2 text-xs">
+
+                      <div
+                        className="flex items-center justify-center gap-1 mt-2 text-xs opacity-70"
+                        style={{ color: "var(--text-color)" }}
+                      >
                         <Calendar className="w-3 h-3" />
                         <span>{edu.date}</span>
                       </div>
-                      <div className="flex items-center justify-center gap-1 text-[#654321] dark:text-[#b8997a] mt-1 text-xs">
+
+                      <div
+                        className="flex items-center justify-center gap-1 mt-1 text-xs opacity-70"
+                        style={{ color: "var(--text-color)" }}
+                      >
                         <MapPin className="w-3 h-3" />
                         <span>{edu.location}</span>
                       </div>
                     </div>
 
+                    {/* Expandable details */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ease-in-out transform
-                        ${
-                          activeFrame === edu.id
-                            ? "max-h-96 opacity-100 scale-y-100"
-                            : "max-h-0 opacity-0 scale-y-0"
+                        ${activeFrame === edu.id
+                          ? "max-h-96 opacity-100 scale-y-100"
+                          : "max-h-0 opacity-0 scale-y-0"
                         }`}
                       style={{ transformOrigin: "top" }}
                     >
                       <div className="mt-4 space-y-4">
                         {edu.achievements && (
                           <div>
-                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321] dark:text-[#b8997a]">
+                            <h4
+                              className="font-heading text-sm mb-2 flex items-center gap-1"
+                              style={{ color: "var(--border-color)" }}
+                            >
                               <Award className="w-3 h-3" />
                               Achievements
                             </h4>
-                            <ul className="list-disc list-inside text-[#654321] dark:text-[#b8997a] text-xs">
+                            <ul
+                              className="list-disc list-inside text-xs space-y-1"
+                              style={{ color: "var(--text-color)", opacity: 0.85 }}
+                            >
                               {edu.achievements.map((achievement, idx) => (
                                 <li key={idx}>{achievement}</li>
                               ))}
@@ -146,7 +192,10 @@ const Education = ({ educationRef, isLargeScreen }) => {
 
                         {edu.courses && (
                           <div>
-                            <h4 className="font-serif text-sm mb-2 flex items-center gap-1 text-[#654321] dark:text-[#b8997a]">
+                            <h4
+                              className="font-heading text-sm mb-2 flex items-center gap-1"
+                              style={{ color: "var(--border-color)" }}
+                            >
                               <BookOpen className="w-3 h-3" />
                               Key Courses
                             </h4>
@@ -154,7 +203,12 @@ const Education = ({ educationRef, isLargeScreen }) => {
                               {edu.courses.map((course, idx) => (
                                 <span
                                   key={idx}
-                                  className="px-2 py-0.5 bg-[#f5e6d3] dark:bg-[#3d2b1f] rounded-full text-xs text-[#8B4513] dark:text-[#b8997a]"
+                                  className="px-2 py-0.5 rounded-full text-xs border"
+                                  style={{
+                                    backgroundColor: "var(--secondary-color)",
+                                    color: "var(--text-color)",
+                                    borderColor: "var(--border-color)",
+                                  }}
                                 >
                                   {course}
                                 </span>

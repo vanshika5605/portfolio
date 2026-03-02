@@ -32,7 +32,7 @@ const Projects = ({ projectsRef }) => {
       className="relative bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
     >
       <div className="flex flex-col items-center">
-        <SectionHeading text="My Work"></SectionHeading>
+        <SectionHeading text="The Pinboard" subtitle="Projects" />
       </div>
 
       {/* Main Container with Navigation */}

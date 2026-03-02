@@ -10,7 +10,7 @@ const Contact = ({ contactRef }) => {
         <div className="container mx-auto max-w-8xl flex flex-col md:flex-row items-center justify-between">
           {/* Text Content */}
           <div className="w-full md:w-1/2 space-y-6 z-10">
-            <h1 className="text-6xl font-bold mb-8">Hey there!</h1>
+            <h1 className="text-6xl font-bold mb-8">Leave a Note</h1>
 
             <p className="text-2xl font-light">I'm always up for a chat.</p>
 

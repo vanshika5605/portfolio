@@ -30,7 +30,7 @@ const Skills = ({ skillsRef }) => {
       <div className="container mx-auto px-4 max-w-8xl">
         {/* Header with improved mobile spacing */}
         <div className="flex flex-col items-center mb-8 sm:mb-12">
-          <SectionHeading text="Skill Set"></SectionHeading>
+          <SectionHeading text="The Bookshelf" subtitle="Skills & Expertise" />
         </div>
 
         {/* Main content with improved mobile layout */}

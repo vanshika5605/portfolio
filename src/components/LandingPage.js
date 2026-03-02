@@ -110,7 +110,7 @@ const LandingPage = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-32 pb-14">
+      <section className="relative min-h-screen pt-24 pb-14">
         {/* Split Background - Only visible on large screens */}
         <div className="absolute inset-0 hidden md:flex">
           <div className="w-1/3 bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText theme-transition" />
@@ -194,9 +194,10 @@ const LandingPage = () => {
 
       <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen} />
       <Projects projectsRef={projectsRef}></Projects>
-      <Education educationRef={educationRef} />
+      
       <Experience experienceRef={experienceRef} />
       <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
+      <Education educationRef={educationRef} />
       <Contact contactRef={contactRef} />
     </div>
   );

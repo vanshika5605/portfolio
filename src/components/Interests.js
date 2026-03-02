@@ -62,7 +62,7 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
       className="relative bg-lightSecondaryColor text-lightText dark:bg-darkSecondaryColor dark:text-darkText theme-transition py-20 pb-14"
     >
       <div className="p-8">
-        <SectionHeading text="What Interests Me"></SectionHeading>
+        <SectionHeading text="The Coffee Table" subtitle="Interests" />
 
         <div
           className={`flex flex-wrap gap-4 justify-center 

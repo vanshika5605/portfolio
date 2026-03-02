@@ -19,8 +19,8 @@ module.exports = {
         darkText: '#ffffff',
       },
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+        body: ['Lato', 'sans-serif'],
+        heading: ['Playfair Display', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-out forwards',

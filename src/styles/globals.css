@@ -7,6 +7,26 @@
   cursor: none !important;
 }
 
+/* Text selection colour — warm theme-aware highlight */
+::selection {
+  background-color: var(--border-color);
+  color: #f5e8de;
+}
+
+/* Offset sections so fixed navbar doesn't cover headings */
+section {
+  scroll-margin-top: 72px;
+}
+
+/* Global typography defaults */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
 /* Base Colors (Light Mode) — warm sand/terracotta palette */
 :root {
   --bg-color: #f5e8de;
