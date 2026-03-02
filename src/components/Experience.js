@@ -320,95 +320,102 @@ const Experience = ({ experienceRef }) => {
             </div>
           </div>
 
-          {/* ─── MOBILE: Stacked chapter cards ─── */}
-          <div className="md:hidden mt-8 space-y-6">
-            {chapters.map((e, i) => (
+          {/* ─── MOBILE: Single chapter, navigable ─── */}
+          <div className="md:hidden mt-8">
+            {/* Chapter card */}
+            <div
+              className={`rounded-sm border overflow-hidden shadow-md transition-all duration-280 ${pageAnim}`}
+              style={{ borderColor: ACCENT, backgroundColor: "#f5e8de" }}
+            >
+              {/* Card header */}
               <div
-                key={i}
-                className="rounded-sm border overflow-hidden shadow-md"
-                style={{ borderColor: ACCENT, backgroundColor: "#f5e8de" }}
+                className="flex items-center justify-between px-4 py-3"
+                style={{
+                  backgroundColor: "#f0e0d0",
+                  borderBottom: `1px solid ${ACCENT}`,
+                }}
               >
-                {/* Card header */}
-                <div
-                  className="flex items-center justify-between px-4 py-3"
-                  style={{
-                    backgroundColor: "#f0e0d0",
-                    borderBottom: `1px solid ${ACCENT}`,
-                  }}
-                >
-                  <div>
-                    <div
-                      className="text-[10px] uppercase tracking-widest opacity-50 mb-0.5"
-                      style={{ color: TEXT }}
-                    >
-                      Chapter {toRoman(i + 1)}
-                    </div>
-                    <div className="text-sm font-bold" style={{ color: TEXT }}>
-                      {e.company}
-                    </div>
-                    <div
-                      className="text-xs italic opacity-70"
-                      style={{ color: TEXT }}
-                    >
-                      {e.role}
-                    </div>
+                <div>
+                  <div
+                    className="text-[10px] uppercase tracking-widest opacity-50 mb-0.5"
+                    style={{ color: TEXT }}
+                  >
+                    Chapter {toRoman(current + 1)}
                   </div>
-                  <div className="text-right text-xs opacity-55" style={{ color: TEXT }}>
-                    <div>{e.year}</div>
-                    <div className="flex items-center justify-end gap-0.5 mt-0.5">
-                      <MapPin size={9} />{e.location}
-                    </div>
+                  <div className="text-sm font-bold" style={{ color: TEXT }}>
+                    {exp.company}
+                  </div>
+                  <div className="text-xs italic opacity-70" style={{ color: TEXT }}>
+                    {exp.role}
                   </div>
                 </div>
-
-                {/* Card body */}
-                <div className="p-4">
-                  {e.description && (
-                    <p
-                      className="text-xs italic leading-relaxed mb-3 opacity-80"
-                      style={{ color: TEXT }}
-                    >
-                      {e.description}
-                    </p>
-                  )}
-                  {e.achievements?.length > 0 && (
-                    <ul className="space-y-2 mb-3">
-                      {e.achievements.map((item, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-1.5 text-xs leading-relaxed"
-                          style={{ color: TEXT }}
-                        >
-                          <span
-                            className="mt-1 flex-shrink-0 opacity-40 text-[8px]"
-                            style={{ color: ACCENT }}
-                          >
-                            ◆
-                          </span>
-                          <span className="opacity-85">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {e.technologies?.length > 0 && (
-                    <div
-                      className="flex flex-wrap gap-1.5 pt-2"
-                      style={{ borderTop: `1px solid ${ACCENT}` }}
-                    >
-                      {e.technologies.map((t, j) => (
-                        <span
-                          key={j}
-                          className="px-2 py-0.5 text-[10px] border rounded-full"
-                          style={{ borderColor: ACCENT, color: TEXT }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                <div className="text-right text-xs opacity-55" style={{ color: TEXT }}>
+                  <div>{exp.year}</div>
+                  <div className="flex items-center justify-end gap-0.5 mt-0.5">
+                    <MapPin size={9} />{exp.location}
+                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Card body */}
+              <div className="p-4">
+                {exp.description && (
+                  <p className="text-xs italic leading-relaxed mb-3 opacity-80" style={{ color: TEXT }}>
+                    {exp.description}
+                  </p>
+                )}
+                {exp.achievements?.length > 0 && (
+                  <ul className="space-y-2 mb-3">
+                    {exp.achievements.map((item, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start gap-1.5 text-xs leading-relaxed"
+                        style={{ color: TEXT }}
+                      >
+                        <span className="mt-1 flex-shrink-0 opacity-40 text-[8px]" style={{ color: ACCENT }}>◆</span>
+                        <span className="opacity-85">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {exp.technologies?.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 pt-2" style={{ borderTop: `1px solid ${ACCENT}` }}>
+                    {exp.technologies.map((t, j) => (
+                      <span
+                        key={j}
+                        className="px-2 py-0.5 text-[10px] border rounded-full"
+                        style={{ borderColor: ACCENT, color: TEXT }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Mobile navigation */}
+            <div className="flex items-center justify-center gap-8 mt-5">
+              <button
+                onClick={() => navigate(current - 1)}
+                disabled={current === 0}
+                className="flex items-center gap-1 text-xs uppercase tracking-widest font-bold transition-opacity disabled:opacity-25"
+                style={{ color: "var(--text-color)" }}
+              >
+                <ChevronLeft size={14} /> Prev
+              </button>
+              <span className="text-xs tracking-widest uppercase opacity-50" style={{ color: "var(--text-color)" }}>
+                {current + 1} / {chapters.length}
+              </span>
+              <button
+                onClick={() => navigate(current + 1)}
+                disabled={current === chapters.length - 1}
+                className="flex items-center gap-1 text-xs uppercase tracking-widest font-bold transition-opacity disabled:opacity-25"
+                style={{ color: "var(--text-color)" }}
+              >
+                Next <ChevronRight size={14} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
