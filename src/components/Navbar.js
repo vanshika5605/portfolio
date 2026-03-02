@@ -130,6 +130,33 @@ const Navbar = ({
           </div>
         </div>
       </div>
+
+      {/* Wavy bottom edge — desktop only, sits just below the nav bar */}
+      {isLargeScreen && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            lineHeight: 0,
+            pointerEvents: "none",
+            height: "20px",
+          }}
+        >
+          <svg
+            viewBox="0 0 1440 20"
+            preserveAspectRatio="none"
+            style={{ display: "block", width: "100%", height: "20px" }}
+          >
+            <path
+              d="M0,0 L1440,0 L1440,10 C1260,5 1080,20 720,10 C360,0 180,15 0,10 Z"
+              style={{ fill: "var(--nav-bg)" }}
+            />
+          </svg>
+        </div>
+      )}
     </nav>
   );
 };

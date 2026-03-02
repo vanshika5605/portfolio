@@ -40,6 +40,8 @@ h1, h2, h3, h4, h5, h6 {
   --section-primary: #f5e8de;
   --section-secondary: #eddac8;
   --section-tertiary: #e8d4c0;
+  /* Navbar background (solid) — used to paint the wavy bottom edge */
+  --nav-bg: #dfc0ac;
   /* Brick/chevron pattern used in Education + Experience */
   --brick-bg-color: #d4b595;
   --brick-pattern-color: #b8997a;
@@ -61,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   --section-primary: #503520;
   --section-secondary: #624428;
   --section-tertiary: #3c2410;
+  --nav-bg: #2e1a08;
   /* Brick pattern — warm amber texture */
   --brick-bg-color: #3c2818;
   --brick-pattern-color: #4e3420;

@@ -163,14 +163,14 @@ const LandingPage = () => {
                   />
                 </div>
 
-                <p className="text-sm md:text-base font-mono text-gray-500 dark:text-gray-400 h-6">
+                <p className="text-sm md:text-base font-mono text-gray-500 dark:text-gray-400 min-h-6">
                   {displayed}
                   {!done && (
                     <span className="inline-block w-0.5 h-4 bg-current ml-0.5 align-middle animate-pulse" />
                   )}
                 </p>
 
-                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:scale-105 hover:text-[#9a6040] dark:hover:text-[#d4a878] transition-transform duration-300">
+                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 mt-8 hover:scale-105 hover:text-[#9a6040] dark:hover:text-[#d4a878] transition-transform duration-300">
                   Hi, I'm Vanshika Agrawal
                 </h1>
 
