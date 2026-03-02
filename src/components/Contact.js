@@ -20,7 +20,7 @@ const Contact = ({ contactRef }) => {
                 <Mail className="inline-block w-5 h-5 align-middle ml-1" /> at{" "}
                 <a
                   href="mailto:vanagrawal@umass.edu"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-[#9a6040] dark:text-[#d4a878] hover:opacity-75 transition-opacity underline"
                 >
                   vanagrawal@umass.edu
                 </a>

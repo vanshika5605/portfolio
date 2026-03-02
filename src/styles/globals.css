@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base Colors (Light Mode) */
-:root {
-  --bg-color: #FEFAE0;
-  --text-color: #000000;
-  --primary-color: #E9EDC9; /* Blue */
-  --secondary-color: #FAEDCD; /* Purple */
-  --border-color: #b08968; /* Light Gray */
-  --scrollbar-thumb: #e0b1cb;
-  --scrollbar-track: #fae1dd;
+/* Hide default cursor globally — CustomCursor renders a pencil instead */
+* {
+  cursor: none !important;
 }
 
-/* Dark Mode Colors */
+/* Base Colors (Light Mode) — warm sand/terracotta palette */
+:root {
+  --bg-color: #f5e8de;
+  --text-color: #000000;
+  --primary-color: #e8d4c0;
+  --secondary-color: #f0ddd0;
+  --border-color: #b08968;
+  --scrollbar-thumb: #c4a090;
+  --scrollbar-track: #f5e8de;
+  /* Wave divider fills — match Tailwind section bg tokens */
+  --section-primary: #f5e8de;
+  --section-secondary: #eddac8;
+  --section-tertiary: #e8d4c0;
+  /* Brick/chevron pattern used in Education + Experience */
+  --brick-bg-color: #d4b595;
+  --brick-pattern-color: #b8997a;
+}
+
+/* Dark Mode Colors — warm amber-brown palette */
 :root.dark {
-  --bg-color: #582630; /* Dark Gray */
+  --bg-color: #2e1a08;
   --text-color: #ffffff;
-  --primary-color: #A54657; /* Lighter Blue */
-  --secondary-color: #99582A; /* Lighter Purple */
-  --border-color: #432818; /* Darker Gray */
-  --scrollbar-thumb: #582630;
-  --scrollbar-track: #A54657;
+  --primary-color: #624428;
+  --secondary-color: #503520;
+  --border-color: #a07840;
+  --scrollbar-thumb: #3c2410;
+  --scrollbar-track: #503520;
+  --section-primary: #503520;
+  --section-secondary: #624428;
+  --section-tertiary: #3c2410;
+  /* Brick pattern — warm amber texture */
+  --brick-bg-color: #3c2818;
+  --brick-pattern-color: #4e3420;
 }
 
 @layer components {

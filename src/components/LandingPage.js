@@ -2,6 +2,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useEffect, useRef, useState } from "react";
 import useTypingEffect from "../hooks/useTypingEffect";
 import LampToggle from "./LampToggle";
+import WaveDivider from "./WaveDivider";
 import Contact from "./Contact";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -109,7 +110,7 @@ const LandingPage = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-32">
+      <section className="relative min-h-screen pt-32 pb-14">
         {/* Split Background - Only visible on large screens */}
         <div className="absolute inset-0 hidden md:flex">
           <div className="w-1/3 bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText theme-transition" />
@@ -166,7 +167,7 @@ const LandingPage = () => {
                   )}
                 </p>
 
-                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:scale-105 hover:text-purple-700 dark:hover:text-purple-300 transition-transform duration-300">
+                <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:scale-105 hover:text-[#9a6040] dark:hover:text-[#d4a878] transition-transform duration-300">
                   Hi, I'm Vanshika Agrawal
                 </h1>
 
@@ -188,11 +189,12 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+        <WaveDivider fillVar="--section-secondary" variant="a" />
       </section>
 
       <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen} />
-      <Education educationRef={educationRef} />
       <Projects projectsRef={projectsRef}></Projects>
+      <Education educationRef={educationRef} />
       <Experience experienceRef={experienceRef} />
       <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
       <Contact contactRef={contactRef} />

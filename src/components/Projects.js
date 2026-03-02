@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 import projects from "../data/projects.json";
 import SectionHeading from "./SectionHeading";
+import WaveDivider from "./WaveDivider";
 
 const Projects = ({ projectsRef }) => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -28,7 +29,7 @@ const Projects = ({ projectsRef }) => {
   return (
     <section
       ref={projectsRef}
-      className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
+      className="relative bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
     >
       <div className="flex flex-col items-center">
         <SectionHeading text="My Work"></SectionHeading>
@@ -111,7 +112,7 @@ const Projects = ({ projectsRef }) => {
 
                     {/* Project Info */}
                     <div className="space-y-2">
-                      <h3 className="font-medium text-base text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="font-medium text-base text-gray-800 group-hover:text-[#9a6040] transition-colors duration-300">
                         {project.title}
                       </h3>
                       <p className="text-xs text-gray-600">
@@ -123,7 +124,7 @@ const Projects = ({ projectsRef }) => {
                         {project.tech.slice(0, 3).map((tech, i) => (
                           <span
                             key={i}
-                            className="px-2 py-0.5 bg-gray-100 text-xs text-gray-600 rounded transition-colors duration-300 group-hover:bg-blue-50 group-hover:text-blue-600"
+                            className="px-2 py-0.5 bg-gray-100 text-xs text-gray-600 rounded transition-colors duration-300 group-hover:bg-[#f5e8de] group-hover:text-[#9a6040]"
                           >
                             {tech}
                           </span>
@@ -150,6 +151,8 @@ const Projects = ({ projectsRef }) => {
           onClose={() => setSelectedProject(null)}
         />
       )}
+
+      <WaveDivider fillVar="--section-tertiary" variant="b" flip />
     </section>
   );
 };

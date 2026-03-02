@@ -39,24 +39,24 @@ const Navbar = ({
       section: "interests",
     },
     {
+      ref: projectsRef,
+      icon: FolderDot,
+      label: "Projects",
+      section: "projects",
+    },
+    {
       ref: educationRef,
       icon: BookOpen,
       label: "Education",
       section: "education",
     },
-    { ref: skillsRef, icon: Lightbulb, label: "Skills", section: "skills" },
     {
       ref: experienceRef,
       icon: Briefcase,
       label: "Experience",
       section: "experience",
     },
-    {
-      ref: projectsRef,
-      icon: FolderDot,
-      label: "Projects",
-      section: "projects",
-    },
+    { ref: skillsRef, icon: Lightbulb, label: "Skills", section: "skills" },
     { ref: contactRef, icon: Mail, label: "Contact", section: "contact" },
   ];
 
@@ -83,7 +83,7 @@ const Navbar = ({
                   p-2 flex flex-col items-center space-y-1 relative
                   ${
                     activeSection === section
-                      ? "text-purple-700 dark:text-purple-300"
+                      ? "text-[#9a6040] dark:text-[#d4a878]"
                       : ""
                   }
                 `}
@@ -92,7 +92,7 @@ const Navbar = ({
                 <span className="text-xs">{label}</span>
                 {activeSection === section && (
                   <svg
-                    className="absolute -bottom-1 w-full h-2 text-purple-700 dark:text-purple-300"
+                    className="absolute -bottom-1 w-full h-2 text-[#9a6040] dark:text-[#d4a878]"
                     viewBox="0 0 100 20"
                     preserveAspectRatio="none"
                   >

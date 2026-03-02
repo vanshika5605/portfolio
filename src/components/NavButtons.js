@@ -2,19 +2,26 @@ import { Download } from "lucide-react";
 
 const NavButtons = ({ className }) => {
   const handleDownloadResume = () => {
-    const resumeUrl = "Vanshika_Agrawal - Resume.pdf";
-    window.open(resumeUrl, "_blank");
+    window.open("Vanshika_Agrawal - Resume.pdf", "_blank");
   };
 
   return (
     <button
       onClick={handleDownloadResume}
+      aria-label="Download Resume"
       className={[
         className,
-        "p-2 rounded-full bg-purple-300 dark:bg-purple-900 shadow-lg hover:bg-purple-700 dark:hover:bg-purple-500 transition-colors duration-200 flex items-center gap-2",
+        "group flex items-center gap-2 px-3 py-1.5 rounded-lg border text-sm font-medium transition-all duration-200",
       ].join(" ")}
+      style={{ borderColor: "var(--border-color)", color: "var(--text-color)" }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = "var(--primary-color)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = "transparent";
+      }}
     >
-      <Download className="w-6 h-6" />
+      <Download className="w-4 h-4 transition-transform duration-200 group-hover:translate-y-0.5" />
       <span className="hidden md:inline">Resume</span>
     </button>
   );

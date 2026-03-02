@@ -7,14 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        lightBg: '#e0b1cb',
-        darkBg: '#582630',
-        lightPrimaryColor: '#fae1dd',
-        darkPrimaryColor: '#A54657',
-        lightSecondaryColor: '#e0b1cb',
-        darkSecondaryColor: '#e26d5c',
-        lightTertiaryColor: '#e0b1cb',
-        darkTertiaryColor: '#231942',
+        lightBg: '#dfc0ac',            // warm sandy blush
+        darkBg: '#2e1a08',             // deep amber-brown
+        lightPrimaryColor: '#f5e8de',  // warm ivory-cream
+        darkPrimaryColor: '#503520',   // warm sienna-brown
+        lightSecondaryColor: '#eddac8', // warm peachy-blush — Interests section
+        darkSecondaryColor: '#624428', // amber-brown — Interests dark
+        lightTertiaryColor: '#e8d4c0', // warm sand
+        darkTertiaryColor: '#3c2410',  // dark amber-brown
         lightText: '#000000',
         darkText: '#ffffff',
       },

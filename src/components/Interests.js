@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import WaveDivider from "./WaveDivider";
 
 const Interests = ({ isLargeScreen, interestsRef }) => {
   const [activeInterest, setActiveInterest] = useState(null);
@@ -58,7 +59,7 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
   return (
     <section
       ref={interestsRef}
-      className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
+      className="relative bg-lightSecondaryColor text-lightText dark:bg-darkSecondaryColor dark:text-darkText theme-transition py-20 pb-14"
     >
       <div className="p-8">
         <SectionHeading text="What Interests Me"></SectionHeading>
@@ -81,10 +82,10 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
                   bg-gradient-to-br
                   ${
                     index % 2 === 0
-                      ? "from-blue-100 to-purple-100"
-                      : "from-pink-100 to-orange-100"
+                      ? "from-[#f5e8de] to-[#eddac8]"
+                      : "from-[#eddac8] to-[#e8d4c0]"
                   }
-                  hover:from-blue-200 hover:to-purple-200
+                  hover:from-[#e8d4c0] hover:to-[#dfc0ac]
                   ${
                     activeInterest === interest.title && isTouchDevice
                       ? "scale-110"
@@ -123,7 +124,7 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
                   {interest.description}
                 </p>
                 {isTouchDevice && (
-                  <div className="mt-2 text-xs text-blue-500">
+                  <div className="mt-2 text-xs text-[#9a6040] dark:text-[#d4a878]">
                     Tap again to close
                   </div>
                 )}
@@ -132,6 +133,8 @@ const Interests = ({ isLargeScreen, interestsRef }) => {
           ))}
         </div>
       </div>
+
+      <WaveDivider fillVar="--section-primary" variant="c" flip />
     </section>
   );
 };

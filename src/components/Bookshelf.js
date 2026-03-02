@@ -137,7 +137,7 @@ const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
                               <div className="space-y-1.5">
                                 <div className="w-full bg-gray-200 rounded-full h-1">
                                   <div
-                                    className="bg-blue-600 rounded-full h-1 transition-all duration-500"
+                                    className="bg-[#9a6040] dark:bg-[#d4a878] rounded-full h-1 transition-all duration-500"
                                     style={{ width: `${skill.proficiency}%` }}
                                   />
                                 </div>

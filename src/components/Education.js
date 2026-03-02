@@ -15,19 +15,17 @@ const Education = ({ educationRef, isLargeScreen }) => {
       <div>
         <div className="relative bg-[#e8d1c0] dark:bg-[#3d2b1f] p-12 rounded-lg shadow-inner text-lightText dark:text-darkText">
           <div
-            className="absolute inset-0 rounded-lg opacity-90"
+            className="absolute inset-0 rounded-lg opacity-90 dark:opacity-20"
             style={{
               backgroundImage: `
-                linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
-                linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px),
-                linear-gradient(335deg, var(--pattern-color) 23px, transparent 23px),
-                linear-gradient(155deg, var(--pattern-color) 23px, transparent 23px)
+                linear-gradient(335deg, var(--brick-pattern-color) 23px, transparent 23px),
+                linear-gradient(155deg, var(--brick-pattern-color) 23px, transparent 23px),
+                linear-gradient(335deg, var(--brick-pattern-color) 23px, transparent 23px),
+                linear-gradient(155deg, var(--brick-pattern-color) 23px, transparent 23px)
               `,
               backgroundSize: "58px 58px",
               backgroundPosition: "0px 2px, 4px 35px, 29px 31px, 34px 6px",
-              backgroundColor: "var(--bg-color)",
-              "--pattern-color": "var(--tw-prose-pre-bg, #b8997a)",
-              "--bg-color": "var(--tw-prose-pre-bg, #d4b595)",
+              backgroundColor: "var(--brick-bg-color)",
               zIndex: 1,
             }}
           />

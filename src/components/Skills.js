@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Bookshelf from "./Bookshelf";
 import SectionHeading from "./SectionHeading";
+import WaveDivider from "./WaveDivider";
 
 const Skills = ({ skillsRef }) => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -23,7 +24,7 @@ const Skills = ({ skillsRef }) => {
 
   return (
     <section
-      className="bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
+      className="relative bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText theme-transition py-20"
       ref={skillsRef}
     >
       <div className="container mx-auto px-4 max-w-8xl">
@@ -55,6 +56,8 @@ const Skills = ({ skillsRef }) => {
           </div>
         </div>
       </div>
+
+      <WaveDivider fillVar="--section-tertiary" variant="d" flip />
     </section>
   );
 };
