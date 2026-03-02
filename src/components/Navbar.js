@@ -125,7 +125,7 @@ const Navbar = ({
             </div>
 
             <div className="flex items-center space-x-4">
-              <NavButtons theme={theme} setTheme={setTheme} />
+              <NavButtons />
             </div>
           </div>
         </div>

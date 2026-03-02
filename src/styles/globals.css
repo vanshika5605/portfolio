@@ -115,3 +115,18 @@
 .animate-fadeInUp {
   animation: fadeInUp 1s ease-out;
 }
+
+@keyframes lampSwing {
+  0%   { transform: rotate(0deg); }
+  18%  { transform: rotate(-20deg); }
+  36%  { transform: rotate(15deg); }
+  52%  { transform: rotate(-9deg); }
+  66%  { transform: rotate(5deg); }
+  78%  { transform: rotate(-2.5deg); }
+  88%  { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-lamp-swing {
+  animation: lampSwing 0.9s ease-out;
+}

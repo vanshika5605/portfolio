@@ -1,5 +1,7 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useEffect, useRef, useState } from "react";
+import useTypingEffect from "../hooks/useTypingEffect";
+import LampToggle from "./LampToggle";
 import Contact from "./Contact";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -10,6 +12,7 @@ import Skills from "./Skills";
 import NavButtons from "./NavButtons";
 
 const LandingPage = () => {
+  const { displayed, done } = useTypingEffect(45);
   const [theme, setTheme] = useState("dark");
   const [isLargeScreen, setIsLargeScreen] = useState(true);
   const [activeSection, setActiveSection] = useState("");
@@ -97,14 +100,12 @@ const LandingPage = () => {
 
   return (
     <div className="custom-scrollbar min-h-screen theme-transition bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText font-body">
-      {/* Theme Toggle Button - Fixed Position */}
+      {/* Lamp toggle — always visible, hangs from top edge */}
+      <LampToggle theme={theme} setTheme={setTheme} />
+
+      {/* Resume button — mobile only (desktop is in Navbar) */}
       {!isLargeScreen && (
-        <NavButtons
-          setTheme={setTheme}
-          theme={theme}
-          class1="fixed top-4 right-4 z-50"
-          class2="fixed top-4 right-16 z-50"
-        />
+        <NavButtons className="fixed top-4 right-4 z-50" />
       )}
 
       {/* Hero Section */}
@@ -157,6 +158,13 @@ const LandingPage = () => {
                     className="rounded-full w-32 h-32 object-cover shadow-lg hover:scale-105 transition-transform duration-300"
                   />
                 </div>
+
+                <p className="text-sm md:text-base font-mono text-gray-500 dark:text-gray-400 h-6">
+                  {displayed}
+                  {!done && (
+                    <span className="inline-block w-0.5 h-4 bg-current ml-0.5 align-middle animate-pulse" />
+                  )}
+                </p>
 
                 <h1 className="text-2xl md:text-3xl font-heading font-bold mb-4 hover:scale-105 hover:text-purple-700 dark:hover:text-purple-300 transition-transform duration-300">
                   Hi, I'm Vanshika Agrawal
