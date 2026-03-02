@@ -152,7 +152,7 @@ const LandingPage = () => {
               <div className="md:col-span-3 text-center md:text-left fade-in space-y-6">
                 <div className="mb-6 flex justify-center md:justify-start">
                   <img
-                    src="profile-2.jpg"
+                    src={process.env.PUBLIC_URL + "/profile-2.jpg"}
                     alt="Vanshika Agrawal"
                     className="rounded-full w-32 h-32 object-cover shadow-lg hover:scale-105 transition-transform duration-300"
                   />
@@ -184,9 +184,9 @@ const LandingPage = () => {
 
       <Interests interestsRef={interestsRef} isLargeScreen={isLargeScreen} />
       <Education educationRef={educationRef} />
-      <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
-      <Experience experienceRef={experienceRef} />
       <Projects projectsRef={projectsRef}></Projects>
+      <Experience experienceRef={experienceRef} />
+      <Skills skillsRef={skillsRef} isLargeScreen={isLargeScreen} />
       <Contact contactRef={contactRef} />
     </div>
   );

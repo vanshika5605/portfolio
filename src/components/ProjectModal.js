@@ -18,62 +18,87 @@ const ProjectModal = ({ project, onClose }) => {
           <X size={20} />
         </button>
 
-        <div className="space-y-4">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-64 object-cover rounded-lg"
-          />
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold text-gray-800 pr-8">{project.title}</h3>
 
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800">
-              {project.title}
-            </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            <div className="flex justify-center md:justify-start">
+              <img
+                src={process.env.PUBLIC_URL + "/" + project.image}
+                alt={project.title}
+                className="w-full max-w-xs max-h-64 object-contain rounded-lg"
+              />
+            </div>
 
-            <div className="mt-4 space-y-4">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">
-                  Overview
-                </h4>
-                <p className="mt-2 text-gray-600">{project.fullDescription}</p>
-              </div>
+            <div>
+              <p className="text-gray-600 leading-relaxed text-justify">
+                {project.fullDescription}
+              </p>
+            </div>
+          </div>
 
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">
-                  Key Features
-                </h4>
-                <ul className="mt-2 space-y-2">
-                  {project.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span className="text-gray-600">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            <div>
+              <h4 className="text-lg font-semibold text-gray-700">
+                Key Features
+              </h4>
+              <ul className="mt-2 space-y-2 text-left">
+                {project.features.map((feature, index) => (
+                  <li key={index} className="flex items-start text-left">
+                    <span className="mr-2">•</span>
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">
-                  Tech Stack
-                </h4>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-700">
+                Tech Stack
+              </h4>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 rounded-full text-sm border"
+                    style={{
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--text-color)",
+                      borderColor: "var(--border-color)",
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 mt-6">
+          </div>
+
+          <div className="flex flex-wrap gap-4 pt-2 md:justify-end">
+            <a
+              href={project.link}
+              className="px-4 py-2 text-white rounded-lg transition-colors"
+              style={{
+                backgroundColor: "var(--primary-color)",
+                color: "var(--text-color)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = "0.8";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = "1";
+              }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Source Code
+            </a>
+            {project.hasVideoDemo === true && (
               <a
-                href={project.link}
+                href={project.videoDemoLink}
                 className="px-4 py-2 text-white rounded-lg transition-colors"
                 style={{
-                  backgroundColor: "var(--primary-color)",
+                  backgroundColor: "var(--secondary-color)",
                   color: "var(--text-color)",
                 }}
                 onMouseEnter={(e) => {
@@ -85,29 +110,9 @@ const ProjectModal = ({ project, onClose }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Source Code
+                View Demo
               </a>
-              {project.hasVideoDemo === true && (
-                <a
-                  href={project.videoDemoLink}
-                  className="px-4 py-2 text-white rounded-lg transition-colors"
-                  style={{
-                    backgroundColor: "var(--secondary-color)",
-                    color: "var(--text-color)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.opacity = "0.8";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.opacity = "1";
-                  }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Demo
-                </a>
-              )}
-            </div>
+            )}
           </div>
         </div>
       </div>

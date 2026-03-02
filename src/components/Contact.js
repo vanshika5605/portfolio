@@ -1,6 +1,5 @@
 import React from "react";
-import { Twitter, Linkedin, Mail } from "lucide-react";
-
+import { Linkedin, Mail } from "lucide-react";
 const Contact = ({ contactRef }) => {
   return (
     <section
@@ -17,38 +16,28 @@ const Contact = ({ contactRef }) => {
 
             <div className="space-y-2">
               <p className="text-xl">
-                Pop me an email at{" "}
+                Pop me an email{" "}
+                <Mail className="inline-block w-5 h-5 align-middle ml-1" /> at{" "}
                 <a
-                  href="mailto:vanshikaagrawal56@gmail.com"
+                  href="mailto:vanagrawal@umass.edu"
                   className="text-blue-400 hover:text-blue-300 transition-colors"
                 >
-                  vanshikaagrawal56@gmail.com
+                  vanagrawal@umass.edu
                 </a>
               </p>
               <p className="text-xl">or give me a shout on social media.</p>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex space-x-4 pt-4">
-              <a
-                href="#twitter"
-                className="p-2 hover:bg-gray-800 rounded-full transition-colors"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/vanshika-agrawal-438463188/"
-                className="p-2 hover:bg-gray-800 rounded-full transition-colors"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a
-                href="mailto:vanshikaagrawal56@gmail.com"
-                className="p-2 hover:bg-gray-800 rounded-full transition-colors"
-              >
-                <Mail className="w-6 h-6" />
-              </a>
-            </div>
+            {/* Connect with me button */}
+            <a
+              href="https://www.linkedin.com/in/vanshika-agrawal56/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText hover:opacity-90 font-medium rounded-lg transition-colors mt-4 theme-transition"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>Connect with me</span>
+            </a>
           </div>
 
           {/* Decorative Circle with Avatar */}
