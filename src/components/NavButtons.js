@@ -2,7 +2,7 @@ import { Download } from "lucide-react";
 
 const NavButtons = ({ className }) => {
   const handleDownloadResume = () => {
-    window.open("Vanshika_Agrawal - Resume.pdf", "_blank");
+    window.open("Vanshika_Agrawal_Resume.pdf", "_blank");
   };
 
   return (

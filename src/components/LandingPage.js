@@ -14,7 +14,10 @@ import NavButtons from "./NavButtons";
 
 const LandingPage = () => {
   const { displayed, done } = useTypingEffect(45);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 20 ? "light" : "dark";
+  });
   const [isLargeScreen, setIsLargeScreen] = useState(true);
   const [activeSection, setActiveSection] = useState("");
 
@@ -172,18 +175,17 @@ const LandingPage = () => {
                 </h1>
 
                 <p className="text-sm md:text-base leading-relaxed">
-                  I'm a Full Stack Developer with two years of industry
-                  experience, skilled in building scalable, user-focused
-                  applications using React.js, Java, and SQL. My work spans
-                  frontend, backend, and database optimization.
+                  I'm a Full Stack Developer with two years of production
+                  experience at Deutsche Bank, where I built reconciliation
+                  systems, React microfrontends, and Spring Boot microservices
+                  used by financial analysts at scale.
                 </p>
 
                 <p className="text-sm md:text-base leading-relaxed">
-                  Currently pursuing an M.S. in Computer Science at UMass
-                  Amherst, I'm now exploring cloud computing and machine
-                  learning, driven by a deep interest in designing intelligent,
-                  distributed systems. I’m excited to build solutions that are
-                  not only technically robust but also meaningful and impactful.{" "}
+                  Currently at Honda Research and pursuing an M.S. in Computer
+                  Science at UMass Amherst, I'm building LLM and knowledge
+                  graph pipelines — bridging my systems background with a
+                  growing focus on generative AI and distributed architectures.
                 </p>
               </div>
             </div>

@@ -1,13 +1,29 @@
 [
   {
+    "year": "Jan 2026 - Present",
+    "role": "Research Extern",
+    "company": "Honda Research Institute USA, Inc.",
+    "description": "Working as a Research Extern on an AI-driven project that leverages large language models and knowledge graphs to extract and reason over structured insights from unstructured automotive research data.",
+    "achievements": [
+    ],
+    "technologies": [
+      "Python",
+      "LLM",
+      "RAG",
+      "Knowledge Graph",
+      "Neo4j"
+    ],
+    "location": "Remote"
+  },
+  {
     "year": "Jun 2025 - Aug 2025",
     "role": "Cloud Identity Engineering Intern",
     "company": "Bose Corporation",
-    "description": "",
+    "description": "Joined the Cloud Identity Engineering team to harden container security across a large-scale Kubernetes environment, working at the intersection of DevOps and cloud security to automate vulnerability detection and reporting across 90+ microservices.",
     "achievements": [
-      "Developed a security automation solution through cross-functional collaboration with key stakeholders to analyze existing workflows and writing a custom Python script to query Kubernetes namespaces, interface with the Harbor API, and execute vulnerability scans with Trivy.",
-      "Automated builds for 90+ Dockerized microservices by orchestrating a Jenkins CI/CD pipeline that executes the security script weekly, publishing comprehensive buildability and vulnerability reports directly to team Slack channels.",
-      "Reduced critical production vulnerabilities by 25%, eliminated 100% of stale images, and cut developer monitoring time by 5 hours/week, establishing the pipeline as the new SDLC management standard."
+      "Built a Python script to query Kubernetes namespaces, interface with the Harbor API, and run Trivy vulnerability scans — automating security checks across the container ecosystem.",
+      "Orchestrated a Jenkins CI/CD pipeline for 90+ Dockerized microservices to run weekly security scans and publish buildability and vulnerability reports directly to team Slack channels.",
+      "Cut critical production vulnerabilities by 25%, eliminated 100% of stale images, and saved the team 5 hours/week of manual monitoring — adopted as the new SDLC standard."
     ],
     "technologies": [
       "Go",
@@ -25,14 +41,15 @@
     "year": "Jul 2022 - Jul 2024",
     "role": "Software Engineer",
     "company": "Deutsche Bank Group",
-    "description": "Played a pivotal role in the development of a greenfield application for the bank’s Reconciliations Department, targeting projected savings of €45M over 5 years while streamlining 14 legacy applications for more intuitive workflows.",
+    "description": "Played a pivotal role in developing a greenfield application for the bank's Reconciliations Department, targeting projected savings of EUR 45M over 5 years while consolidating 14 legacy systems.",
     "achievements": [
-      "Modernized fintech reconciliation infrastructure by building full stack solutions in a fast-paced Agile environment, consolidating 14 legacy systems into a microservice platform using Spring Boot, React.js microfrontends, and Oracle SQL.",
-      "Led a time-critical project from concept to delivery, architecting a full-stack configuration management system with an intuitive UI for business analysts and a Git-based pipeline that cut manual deployment efforts by 40%.",
-      "Streamlined data reconciliation workflows by building the frontend dashboards in React.js and the supporting backend REST APIs in Spring Boot, saving 15+ business analysts over 10 hours per week.",
-      "Accelerated a high-volume Apache Spark matching engine by 40% by implementing a core Java algorithm using test-driven development that translated abstract JSON business rules into optimized, machine-executable code.",
-      "Achieved industry compliance by overhauling the platform’s security and entitlement model, redesigning the JWT authentication flow and implementing a segmented Oracle DB architecture that minimized cross-service data exposure by 95%.",
-      "Elevated team proficiency by leading hands-on workshops, interactive pair-programming, and collaborative working sessions in React.js and Database Management, fostering advanced full-stack capabilities in junior developers."
+      "Consolidated 14 legacy reconciliation apps into a single strategic platform using Agile development, contributing to EUR 45M in long-term cost savings.",
+      "Built analyst-facing config utilities in React and JavaScript that streamlined the promotion process and cut manual errors by 60%.",
+      "Optimised a high-throughput reconciliation matching workflow using Apache Spark and SQL in Spring Boot, boosting processing throughput by 40%.",
+      "Engineered a Java-based interpreter to translate analyst-authored JSON configs into executable runtime logic, eliminating developer bottlenecks for 50+ reconciliations.",
+      "Improved production reliability using checkpointing and feature flags in Spring Boot microservices via REST APIs and ActiveMQ, enabling retry/resume and reducing failure recovery time.",
+      "Strengthened platform security by redesigning JWT-based auth and implementing a segmented Oracle DB architecture with service-specific users to minimise cross-service data access.",
+      "Raised React.js test coverage to 80%+ with Jest and React Testing Library, and established frontend best practices adopted across the team."
     ],
     "technologies": [
       "Java",
@@ -54,7 +71,7 @@
     "company": "Altruist Technologies Private Limited",
     "description": "During my internship at Altruist Technologies, I independently developed a secure virtual hospital web application as a separate project. This experience allowed me to grasp the end-to-end development of a web application.",
     "achievements": [
-      "Architected & developed a secure Virtual Hospital § web application using SpringBoot and native HTML/CSS with key functionalities like appointment booking, prescription generation, notification workflows & a document repository.",
+      "Architected & developed a secure Virtual Hospital web application using SpringBoot and native HTML/CSS with key functionalities like appointment booking, prescription generation, notification workflows & a document repository.",
       "Engineered a robust WebRTC framework using WebSocket for real-time collaboration capabilities."
     ],
     "technologies": ["Java", "Spring Boot", "HTML", "CSS", "WebSocket"],
@@ -64,7 +81,7 @@
     "year": "2019",
     "role": "Intern",
     "company": "Aloha Technology",
-    "description": "",
+    "description": "Gained foundational industry experience contributing to web development projects, building core skills in server-side scripting and frontend development while working within a professional engineering team for the first time.",
     "technologies": ["PHP", "HTML5", "CSS3", "Web Development"],
     "location": "Pune, India"
   }

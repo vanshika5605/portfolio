@@ -24,7 +24,7 @@ const ProjectModal = ({ project, onClose }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
             <div className="flex justify-center md:justify-start">
               <img
-                src={process.env.PUBLIC_URL + "/" + project.image}
+                src={project.image?.startsWith("http") ? project.image : process.env.PUBLIC_URL + "/" + project.image}
                 alt={project.title}
                 className="w-full max-w-xs max-h-64 object-contain rounded-lg"
               />

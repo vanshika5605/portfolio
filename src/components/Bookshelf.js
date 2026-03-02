@@ -124,37 +124,19 @@ const Bookshelf = ({ isTouchDevice, setIsTouchDevice }) => {
                           {activeBook ===
                             `${shelf.name}-${category.name}-${skill.name}` && (
                             <div
-                              className={`absolute z-10 bg-white p-2 rounded-lg shadow-xl
+                              className={`absolute z-10 bg-white p-2.5 rounded-lg shadow-xl
                                 ${
                                   tooltipPosition === "bottom"
-                                    ? "bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 w-40"
-                                    : "left-full top-0 transform translate-x-2 w-36"
+                                    ? "bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 w-44"
+                                    : "left-full top-0 transform translate-x-2 w-40"
                                 }`}
                             >
-                              <h4 className="font-bold text-[11px] sm:text-xs mb-1.5">
+                              <h4 className="font-bold text-[11px] sm:text-xs text-gray-800 mb-1">
                                 {skill.name}
                               </h4>
-                              <div className="space-y-1.5">
-                                <div className="w-full bg-gray-200 rounded-full h-1">
-                                  <div
-                                    className="bg-[#9a6040] dark:bg-[#d4a878] rounded-full h-1 transition-all duration-500"
-                                    style={{ width: `${skill.proficiency}%` }}
-                                  />
-                                </div>
-                                <div className="text-[9px] sm:text-[10px] text-gray-600">
-                                  {skill.proficiency}% Proficiency
-                                </div>
-                                {/* <div className="flex text-[9px] sm:text-[10px] text-gray-600">
-                                  <div className="flex items-center gap-1">
-                                    <Calendar size={9} className="sm:w-[10px] sm:h-[10px]" />
-                                    {skill.years}
-                                  </div>
-                                  <div className="flex items-center gap-1">
-                                    <Code size={9} className="sm:w-[10px] sm:h-[10px]" />
-                                    {skill.projects} projects
-                                  </div>
-                                </div> */}
-                              </div>
+                              <p className="text-[9px] sm:text-[10px] text-gray-500 italic leading-relaxed">
+                                {skill.context}
+                              </p>
                             </div>
                           )}
                         </div>

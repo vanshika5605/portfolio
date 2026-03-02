@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
   /* Brick/chevron pattern used in Education + Experience */
   --brick-bg-color: #d4b595;
   --brick-pattern-color: #b8997a;
+  /* Coffee table objects — inverted so objects contrast against the section bg */
+  --object-fill: #624428;
+  --object-fill-secondary: #503520;
+  --object-fill-inner: #4a3020;
 }
 
 /* Dark Mode Colors — warm amber-brown palette */
@@ -60,6 +64,10 @@ h1, h2, h3, h4, h5, h6 {
   /* Brick pattern — warm amber texture */
   --brick-bg-color: #3c2818;
   --brick-pattern-color: #4e3420;
+  /* Coffee table objects — flipped: light cream in dark mode */
+  --object-fill: #e8d4c0;
+  --object-fill-secondary: #f0ddd0;
+  --object-fill-inner: #f5e8de;
 }
 
 @layer components {
@@ -167,4 +175,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-lamp-swing {
   animation: lampSwing 0.9s ease-out;
+}
+
+/* ── Experience book: 3D page-flip animations ── */
+@keyframes pageFlipOutNext {
+  from { transform: perspective(900px) rotateY(0deg);   opacity: 1;   }
+  to   { transform: perspective(900px) rotateY(-90deg); opacity: 0.1; }
+}
+@keyframes pageFlipInNext {
+  from { transform: perspective(900px) rotateY(90deg);  opacity: 0.1; }
+  to   { transform: perspective(900px) rotateY(0deg);   opacity: 1;   }
+}
+@keyframes pageFlipOutPrev {
+  from { transform: perspective(900px) rotateY(0deg);   opacity: 1;   }
+  to   { transform: perspective(900px) rotateY(90deg);  opacity: 0.1; }
+}
+@keyframes pageFlipInPrev {
+  from { transform: perspective(900px) rotateY(-90deg); opacity: 0.1; }
+  to   { transform: perspective(900px) rotateY(0deg);   opacity: 1;   }
+}
+
+.page-flip-out-next { animation: pageFlipOutNext 230ms ease-in  forwards; transform-origin: left  center; }
+.page-flip-in-next  { animation: pageFlipInNext  230ms ease-out forwards; transform-origin: left  center; }
+.page-flip-out-prev { animation: pageFlipOutPrev 230ms ease-in  forwards; transform-origin: right center; }
+.page-flip-in-prev  { animation: pageFlipInPrev  230ms ease-out forwards; transform-origin: right center; }
+
+/* ── Scroll-to-read nudge ── */
+@keyframes nudgeBounce {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(4px); }
+}
+.animate-nudge-bounce {
+  animation: nudgeBounce 1.4s ease-in-out infinite;
 }

@@ -104,7 +104,7 @@ const Projects = ({ projectsRef }) => {
                     {/* Project Image */}
                     <div className="relative h-50 bg-gray-100 mb-3 overflow-hidden">
                       <img
-                        src={process.env.PUBLIC_URL + "/" + project.image}
+                        src={project.image?.startsWith("http") ? project.image : process.env.PUBLIC_URL + "/" + project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                       />

@@ -25,6 +25,31 @@
     "videoDemoLink": "https://youtu.be/yKWPM9PLzlo"
   },
   {
+    "title": "Distributed Stock Trading System",
+    "description": "Fault-tolerant stock trading microservices with LRU caching and leader-follower replication.",
+    "fullDescription": "A fault-tolerant, high-availability stock trading platform built as a Dockerized multi-tier microservice system. Implements a server-side LRU cache for low-latency stock quote lookups with push-based cache invalidation after trades, and a replicated order service using leader-follower replication with automatic failover. Concurrent client traffic is handled via dynamic thread pools. Performance was validated on AWS — sustaining 1,000+ concurrent requests/second with sub-150 ms average response latency across varying trade probabilities.",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=480&h=320&fit=crop&auto=format",
+    "tech": [
+      "Python",
+      "Docker",
+      "AWS",
+      "Microservices",
+      "REST APIs",
+      "LRU Cache",
+      "Leader-Follower Replication"
+    ],
+    "features": [
+      "Server-side LRU cache with push-based invalidation for consistent stock quotes",
+      "Replicated order service with leader-follower replication and automatic failover",
+      "Dynamic thread pools for concurrent multi-client request handling",
+      "Replica catch-up after crash — requests missed orders from peers on restart",
+      "AWS load testing: 1,000+ RPS with sub-150 ms average response latency",
+      "Containerized deployment via Docker Compose"
+    ],
+    "link": "https://github.com/vanshika5605/Stock-Trading-System",
+    "hasVideoDemo": false
+  },
+  {
     "title": "Travel Planner",
     "description": "AI-powered platform travel planning platform",
     "fullDescription": "The Travel Planner Application is an AI-powered platform designed to enhance and simplify the travel planning experience. By leveraging the capabilities of Llama-3.2-3B-Instruct, the application curates personalized itineraries, suggests destinations based on user moods, provides a comprehensive packing checklist, and more.",

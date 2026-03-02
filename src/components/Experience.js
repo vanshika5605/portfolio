@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-import { useState } from "react";
+import { ChevronLeft, ChevronRight, ChevronDown, MapPin } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import experiences from "../data/experiences.json";
 import SectionHeading from "./SectionHeading";
 import WaveDivider from "./WaveDivider";
@@ -12,45 +12,71 @@ const toRoman = (n) => {
   return r;
 };
 
-// Book pages are always cream, so ink is always a fixed dark warm brown
-// (never white — white text on cream paper is unreadable in dark mode)
-const TEXT = "#3d2010";
-// Accent / decorative colour — warm tan, used for borders, ornaments, spine
+const TEXT  = "#3d2010";
 const ACCENT = "var(--border-color)";
 
 const Experience = ({ experienceRef }) => {
-  // Reverse so Chapter I = oldest role, last chapter = most recent
   const chapters = [...experiences].reverse();
 
-  const [current, setCurrent]   = useState(chapters.length - 1);
-  const [visible, setVisible]   = useState(true);
-  const [slideDir, setSlideDir] = useState("");
+  const [current,   setCurrent]   = useState(chapters.length - 1);
+  const [animPhase, setAnimPhase] = useState("idle");
 
+  const scrollRef       = useRef(null);
+  const mobileScrollRef = useRef(null);
+  const [showNudge,       setShowNudge]       = useState(false);
+  const [showMobileNudge, setShowMobileNudge] = useState(false);
+
+  // ── Navigation ────────────────────────────────────────────────────────────
   const navigate = (next) => {
-    if (next === current || next < 0 || next >= chapters.length) return;
+    if (next === current || next < 0 || next >= chapters.length || animPhase !== "idle") return;
     const dir = next > current ? "next" : "prev";
-    setSlideDir(dir);
-    setVisible(false);
+    setAnimPhase(`exit-${dir}`);
     setTimeout(() => {
       setCurrent(next);
-      setVisible(true);
-      setSlideDir("");
-    }, 280);
+      setAnimPhase(`enter-${dir}`);
+      setTimeout(() => setAnimPhase("idle"), 230);
+    }, 230);
   };
 
+  // ── Scroll-overflow detection ─────────────────────────────────────────────
+  const checkNudge = useCallback((el, setter) => {
+    if (!el) return;
+    const overflows = el.scrollHeight > el.clientHeight + 4;
+    const atBottom  = el.scrollHeight - el.scrollTop <= el.clientHeight + 4;
+    setter(overflows && !atBottom);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTop = 0;
+    const handler = () => checkNudge(el, setShowNudge);
+    const t = setTimeout(handler, 60);
+    el.addEventListener("scroll", handler);
+    return () => { clearTimeout(t); el.removeEventListener("scroll", handler); };
+  }, [current, checkNudge]);
+
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    el.scrollTop = 0;
+    const handler = () => checkNudge(el, setShowMobileNudge);
+    const t = setTimeout(handler, 60);
+    el.addEventListener("scroll", handler);
+    return () => { clearTimeout(t); el.removeEventListener("scroll", handler); };
+  }, [current, checkNudge]);
+
+  // ── Derived animation classes ─────────────────────────────────────────────
   const exp = chapters[current];
 
-  const pageAnim = visible
-    ? "opacity-100 translate-x-0"
-    : slideDir === "next"
-    ? "opacity-0 translate-x-5"
-    : "opacity-0 -translate-x-5";
+  const pageFlipClass =
+    animPhase === "exit-next"  ? "page-flip-out-next" :
+    animPhase === "enter-next" ? "page-flip-in-next"  :
+    animPhase === "exit-prev"  ? "page-flip-out-prev" :
+    animPhase === "enter-prev" ? "page-flip-in-prev"  : "";
 
-  const leftPageAnim = visible
-    ? "opacity-100 translate-x-0"
-    : slideDir === "next"
-    ? "opacity-0 -translate-x-5"
-    : "opacity-0 translate-x-5";
+  const leftFadeClass  = animPhase.startsWith("exit") ? "opacity-0" : "opacity-100";
+  const mobileFadeClass = animPhase.startsWith("exit") ? "opacity-0" : "opacity-100";
 
   return (
     <section
@@ -95,68 +121,42 @@ const Experience = ({ experienceRef }) => {
 
                 {/* ── Left page: chapter opener ── */}
                 <div
-                  className="flex-1 flex flex-col items-center justify-center p-8 text-center border rounded-l-sm overflow-hidden"
+                  className={`flex-1 flex flex-col items-center justify-center p-8 text-center border rounded-l-sm overflow-hidden transition-opacity duration-[230ms] ${leftFadeClass}`}
                   style={{ backgroundColor: "#f0e0d0", borderColor: ACCENT }}
                 >
-                  {/* Page number — decorative, stays accent */}
-                  <span
-                    className="absolute top-4 left-5 text-xs opacity-30"
-                    style={{ color: ACCENT }}
-                  >
+                  <span className="absolute top-4 left-5 text-xs opacity-30" style={{ color: ACCENT }}>
                     {(current + 1) * 2 - 1}
                   </span>
 
-                  {/* Roman numeral watermark — decorative */}
-                  <div
-                    className="text-8xl font-serif font-bold opacity-[0.08] mb-2 select-none"
-                    style={{ color: ACCENT }}
-                  >
+                  <div className="text-8xl font-serif font-bold opacity-[0.08] mb-2 select-none" style={{ color: ACCENT }}>
                     {toRoman(current + 1)}
                   </div>
 
-                  {/* Ornamental rule */}
                   <div className="flex items-center gap-2 w-full mb-6">
                     <div className="flex-1 h-px opacity-30" style={{ backgroundColor: ACCENT }} />
                     <div className="w-1.5 h-1.5 rotate-45 opacity-40" style={{ backgroundColor: ACCENT }} />
                     <div className="flex-1 h-px opacity-30" style={{ backgroundColor: ACCENT }} />
                   </div>
 
-                  {/* Animated company info */}
-                  <div className={`transition-all duration-280 ${leftPageAnim}`}>
-                    <div
-                      className="text-xs uppercase tracking-[0.2em] mb-2 opacity-50"
-                      style={{ color: TEXT }}
-                    >
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.2em] mb-2 opacity-50" style={{ color: TEXT }}>
                       Chapter {toRoman(current + 1)}
                     </div>
-                    <h2
-                      className="text-xl font-bold leading-tight mb-2"
-                      style={{ color: TEXT }}
-                    >
+                    <h2 className="text-xl font-bold leading-tight mb-2" style={{ color: TEXT }}>
                       {exp.company}
                     </h2>
-                    <p
-                      className="text-sm italic mb-4 opacity-75"
-                      style={{ color: TEXT }}
-                    >
+                    <p className="text-sm italic mb-4 opacity-75" style={{ color: TEXT }}>
                       {exp.role}
                     </p>
-                    <div
-                      className="flex items-center justify-center gap-1 text-xs opacity-55"
-                      style={{ color: TEXT }}
-                    >
+                    <div className="flex items-center justify-center gap-1 text-xs opacity-55" style={{ color: TEXT }}>
                       <MapPin size={10} />
                       <span>{exp.location}</span>
                     </div>
-                    <div
-                      className="text-xs mt-1 opacity-50"
-                      style={{ color: TEXT }}
-                    >
+                    <div className="text-xs mt-1 opacity-50" style={{ color: TEXT }}>
                       {exp.year}
                     </div>
                   </div>
 
-                  {/* Bottom ornament */}
                   <div className="flex items-center gap-2 w-full mt-6">
                     <div className="flex-1 h-px opacity-30" style={{ backgroundColor: ACCENT }} />
                     <div className="w-1.5 h-1.5 rotate-45 opacity-40" style={{ backgroundColor: ACCENT }} />
@@ -171,11 +171,7 @@ const Experience = ({ experienceRef }) => {
                 >
                   <span
                     className="text-[7px] uppercase tracking-[0.18em] whitespace-nowrap font-bold select-none"
-                    style={{
-                      color: "#f5e8de",
-                      writingMode: "vertical-rl",
-                      transform: "rotate(180deg)",
-                    }}
+                    style={{ color: "#f5e8de", writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                   >
                     Professional Experience
                   </span>
@@ -197,11 +193,8 @@ const Experience = ({ experienceRef }) => {
                     }}
                   />
 
-                  {/* Chapter tabs — right edge */}
-                  <div
-                    className="absolute right-0 top-0 bottom-0 flex flex-col"
-                    style={{ width: "18px", zIndex: 5 }}
-                  >
+                  {/* Chapter tabs — right edge, always on top */}
+                  <div className="absolute right-0 top-0 bottom-0 flex flex-col" style={{ width: "18px", zIndex: 5 }}>
                     {chapters.map((_, i) => (
                       <button
                         key={i}
@@ -209,8 +202,7 @@ const Experience = ({ experienceRef }) => {
                         className="flex-1 flex items-center justify-center transition-colors duration-200"
                         title={chapters[i].company}
                         style={{
-                          backgroundColor:
-                            i === current ? ACCENT : "rgba(176,137,104,0.2)",
+                          backgroundColor: i === current ? ACCENT : "rgba(176,137,104,0.2)",
                           borderLeft: `1px solid ${ACCENT}`,
                         }}
                       >
@@ -228,62 +220,78 @@ const Experience = ({ experienceRef }) => {
                     ))}
                   </div>
 
-                  {/* Page number — decorative */}
-                  <span
-                    className="absolute top-4 right-7 text-xs opacity-30 z-10"
-                    style={{ color: ACCENT }}
-                  >
+                  {/* Page number */}
+                  <span className="absolute top-4 right-7 text-xs opacity-30 z-10" style={{ color: ACCENT }}>
                     {(current + 1) * 2}
                   </span>
 
-                  {/* Scrollable content */}
-                  <div
-                    className={`absolute inset-0 right-[18px] p-6 pt-8 overflow-y-auto transition-all duration-280 ${pageAnim}`}
-                    style={{ scrollbarWidth: "none" }}
-                  >
+                  {/* Flippable content — flex column so sections can be fixed/scrollable */}
+                  <div className={`absolute inset-0 right-[18px] flex flex-col ${pageFlipClass}`}>
+
+                    {/* Fixed: description */}
                     {exp.description && (
-                      <p
-                        className="text-xs italic leading-relaxed mb-4 opacity-80"
-                        style={{ color: TEXT }}
-                      >
-                        {exp.description}
-                      </p>
+                      <div className="px-6 pt-8 pb-2 flex-shrink-0">
+                        <p className="text-xs italic leading-relaxed opacity-80 text-justify" style={{ color: TEXT }}>
+                          {exp.description}
+                        </p>
+                        <div className="mt-2 h-px opacity-20" style={{ backgroundColor: ACCENT }} />
+                      </div>
                     )}
 
-                    {exp.achievements?.length > 0 && (
-                      <ul className="space-y-2 mb-4">
-                        {exp.achievements.map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-1.5 text-[11px] leading-relaxed"
-                            style={{ color: TEXT }}
-                          >
-                            <span
-                              className="mt-1 flex-shrink-0 opacity-40 text-[8px]"
-                              style={{ color: ACCENT }}
-                            >
-                              ◆
-                            </span>
-                            <span className="opacity-85">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {exp.technologies?.length > 0 && (
+                    {/* Scrollable: achievements only */}
+                    <div className="flex-1 relative overflow-hidden">
                       <div
-                        className="flex flex-wrap gap-1.5 pt-3"
-                        style={{ borderTop: `1px solid ${ACCENT}` }}
+                        ref={scrollRef}
+                        className={`absolute inset-0 overflow-y-auto px-6 ${exp.description ? "pt-2" : "pt-8"}`}
+                        style={{ scrollbarWidth: "none" }}
                       >
-                        {exp.technologies.map((t, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-0.5 text-[10px] border rounded-full"
-                            style={{ borderColor: ACCENT, color: TEXT }}
-                          >
-                            {t}
-                          </span>
-                        ))}
+                        {exp.achievements?.length > 0 ? (
+                          <ul className="space-y-2">
+                            {exp.achievements.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-1.5 text-[11px] leading-relaxed"
+                                style={{ color: TEXT }}
+                              >
+                                <span className="mt-1 flex-shrink-0 opacity-40 text-[8px]" style={{ color: ACCENT }}>◆</span>
+                                <span className="opacity-85 text-justify">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-[11px] italic opacity-40" style={{ color: TEXT }}>
+                            More details coming soon.
+                          </p>
+                        )}
+                        <div className="h-8" />
+                      </div>
+
+                      {/* Scroll fade — scoped to achievements area */}
+                      <div
+                        className={`absolute bottom-0 left-0 right-0 h-12 pointer-events-none z-10 transition-opacity duration-300 ${showNudge ? "opacity-100" : "opacity-0"}`}
+                        style={{ background: "linear-gradient(to bottom, transparent, #f5e8de)" }}
+                      />
+                      <div
+                        className={`absolute bottom-1.5 left-0 right-0 flex justify-center z-20 pointer-events-none transition-opacity duration-300 ${showNudge ? "opacity-100 animate-nudge-bounce" : "opacity-0"}`}
+                      >
+                        <ChevronDown size={13} style={{ color: ACCENT }} />
+                      </div>
+                    </div>
+
+                    {/* Fixed: technologies */}
+                    {exp.technologies?.length > 0 && (
+                      <div className="px-6 py-2.5 flex-shrink-0" style={{ borderTop: `1px solid ${ACCENT}` }}>
+                        <div className="flex flex-wrap gap-1.5">
+                          {exp.technologies.map((t, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-0.5 text-[10px] border rounded-full"
+                              style={{ borderColor: ACCENT, color: TEXT }}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -291,8 +299,16 @@ const Experience = ({ experienceRef }) => {
               </div>
             </div>
 
-            {/* Navigation — outside the book, follows site theme */}
-            <div className="flex items-center justify-center gap-8 mt-6">
+            {/* ── Reader hint ── */}
+            <p
+              className="text-center text-[11px] font-bold tracking-wide mt-5 mb-1 select-none"
+              style={{ color: "var(--text-color)", opacity: 0.45 }}
+            >
+              ✦&nbsp;&nbsp;flip through the chapters using the arrows or tabs&nbsp;&nbsp;✦
+            </p>
+
+            {/* ── Navigation with dot indicators ── */}
+            <div className="flex items-center justify-center gap-8 mt-3">
               <button
                 onClick={() => navigate(current - 1)}
                 disabled={current === 0}
@@ -302,12 +318,24 @@ const Experience = ({ experienceRef }) => {
                 <ChevronLeft size={14} /> Prev
               </button>
 
-              <span
-                className="text-xs tracking-widest uppercase opacity-50"
-                style={{ color: "var(--text-color)" }}
-              >
-                Chapter {current + 1} of {chapters.length}
-              </span>
+              {/* Dot indicators */}
+              <div className="flex items-center gap-2">
+                {chapters.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => navigate(i)}
+                    title={chapters[i].company}
+                    className="transition-all duration-300 hover:opacity-80"
+                    style={{
+                      height: "8px",
+                      width: i === current ? "22px" : "8px",
+                      borderRadius: i === current ? "4px" : "50%",
+                      backgroundColor:
+                        i === current ? "var(--border-color)" : "rgba(176,137,104,0.35)",
+                    }}
+                  />
+                ))}
+              </div>
 
               <button
                 onClick={() => navigate(current + 1)}
@@ -322,32 +350,21 @@ const Experience = ({ experienceRef }) => {
 
           {/* ─── MOBILE: Single chapter, navigable ─── */}
           <div className="md:hidden mt-8">
-            {/* Chapter card */}
             <div
-              className={`rounded-sm border overflow-hidden shadow-md transition-all duration-280 ${pageAnim}`}
+              className={`rounded-sm border overflow-hidden shadow-md transition-opacity duration-[230ms] ${mobileFadeClass}`}
               style={{ borderColor: ACCENT, backgroundColor: "#f5e8de" }}
             >
               {/* Card header */}
               <div
                 className="flex items-center justify-between px-4 py-3"
-                style={{
-                  backgroundColor: "#f0e0d0",
-                  borderBottom: `1px solid ${ACCENT}`,
-                }}
+                style={{ backgroundColor: "#f0e0d0", borderBottom: `1px solid ${ACCENT}` }}
               >
                 <div>
-                  <div
-                    className="text-[10px] uppercase tracking-widest opacity-50 mb-0.5"
-                    style={{ color: TEXT }}
-                  >
+                  <div className="text-[10px] uppercase tracking-widest opacity-50 mb-0.5" style={{ color: TEXT }}>
                     Chapter {toRoman(current + 1)}
                   </div>
-                  <div className="text-sm font-bold" style={{ color: TEXT }}>
-                    {exp.company}
-                  </div>
-                  <div className="text-xs italic opacity-70" style={{ color: TEXT }}>
-                    {exp.role}
-                  </div>
+                  <div className="text-sm font-bold" style={{ color: TEXT }}>{exp.company}</div>
+                  <div className="text-xs italic opacity-70" style={{ color: TEXT }}>{exp.role}</div>
                 </div>
                 <div className="text-right text-xs opacity-55" style={{ color: TEXT }}>
                   <div>{exp.year}</div>
@@ -357,29 +374,57 @@ const Experience = ({ experienceRef }) => {
                 </div>
               </div>
 
-              {/* Card body */}
-              <div className="p-4">
-                {exp.description && (
-                  <p className="text-xs italic leading-relaxed mb-3 opacity-80" style={{ color: TEXT }}>
+              {/* Fixed: description */}
+              {exp.description && (
+                <div className="px-4 pt-3 pb-2 flex-shrink-0" style={{ borderBottom: `1px solid ${ACCENT}` }}>
+                  <p className="text-xs italic leading-relaxed opacity-80 text-justify" style={{ color: TEXT }}>
                     {exp.description}
                   </p>
-                )}
-                {exp.achievements?.length > 0 && (
-                  <ul className="space-y-2 mb-3">
-                    {exp.achievements.map((item, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-1.5 text-xs leading-relaxed"
-                        style={{ color: TEXT }}
-                      >
-                        <span className="mt-1 flex-shrink-0 opacity-40 text-[8px]" style={{ color: ACCENT }}>◆</span>
-                        <span className="opacity-85">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {exp.technologies?.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 pt-2" style={{ borderTop: `1px solid ${ACCENT}` }}>
+                </div>
+              )}
+
+              {/* Scrollable: achievements */}
+              <div className="relative" style={{ maxHeight: "220px" }}>
+                <div
+                  ref={mobileScrollRef}
+                  className="overflow-y-auto p-4"
+                  style={{ scrollbarWidth: "none" }}
+                >
+                  {exp.achievements?.length > 0 ? (
+                    <ul className="space-y-2">
+                      {exp.achievements.map((item, j) => (
+                        <li
+                          key={j}
+                          className="flex items-start gap-1.5 text-xs leading-relaxed"
+                          style={{ color: TEXT }}
+                        >
+                          <span className="mt-1 flex-shrink-0 opacity-40 text-[8px]" style={{ color: ACCENT }}>◆</span>
+                          <span className="opacity-85 text-justify">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-xs italic opacity-40" style={{ color: TEXT }}>More details coming soon.</p>
+                  )}
+                  <div className="h-6" />
+                </div>
+
+                {/* Mobile scroll fade */}
+                <div
+                  className={`absolute bottom-0 left-0 right-0 h-10 pointer-events-none transition-opacity duration-300 ${showMobileNudge ? "opacity-100" : "opacity-0"}`}
+                  style={{ background: "linear-gradient(to bottom, transparent, #f5e8de)" }}
+                />
+                <div
+                  className={`absolute bottom-1.5 left-0 right-0 flex justify-center pointer-events-none transition-opacity duration-300 ${showMobileNudge ? "opacity-100 animate-nudge-bounce" : "opacity-0"}`}
+                >
+                  <ChevronDown size={12} style={{ color: ACCENT }} />
+                </div>
+              </div>
+
+              {/* Fixed: technologies */}
+              {exp.technologies?.length > 0 && (
+                <div className="px-4 py-2.5 flex-shrink-0" style={{ borderTop: `1px solid ${ACCENT}` }}>
+                  <div className="flex flex-wrap gap-1.5">
                     {exp.technologies.map((t, j) => (
                       <span
                         key={j}
@@ -390,12 +435,20 @@ const Experience = ({ experienceRef }) => {
                       </span>
                     ))}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* Mobile navigation */}
-            <div className="flex items-center justify-center gap-8 mt-5">
+            {/* Mobile reader hint */}
+            <p
+              className="text-center text-[10px] font-bold tracking-wide mt-4 mb-1 select-none"
+              style={{ color: "var(--text-color)", opacity: 0.45 }}
+            >
+              ✦&nbsp;&nbsp;tap the arrows to flip through chapters&nbsp;&nbsp;✦
+            </p>
+
+            {/* Mobile navigation with dots */}
+            <div className="flex items-center justify-center gap-6 mt-2">
               <button
                 onClick={() => navigate(current - 1)}
                 disabled={current === 0}
@@ -404,9 +457,24 @@ const Experience = ({ experienceRef }) => {
               >
                 <ChevronLeft size={14} /> Prev
               </button>
-              <span className="text-xs tracking-widest uppercase opacity-50" style={{ color: "var(--text-color)" }}>
-                {current + 1} / {chapters.length}
-              </span>
+
+              <div className="flex items-center gap-1.5">
+                {chapters.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => navigate(i)}
+                    className="transition-all duration-300"
+                    style={{
+                      height: "6px",
+                      width: i === current ? "16px" : "6px",
+                      borderRadius: i === current ? "3px" : "50%",
+                      backgroundColor:
+                        i === current ? "var(--border-color)" : "rgba(176,137,104,0.35)",
+                    }}
+                  />
+                ))}
+              </div>
+
               <button
                 onClick={() => navigate(current + 1)}
                 disabled={current === chapters.length - 1}
@@ -417,6 +485,7 @@ const Experience = ({ experienceRef }) => {
               </button>
             </div>
           </div>
+
         </div>
       </div>
 
