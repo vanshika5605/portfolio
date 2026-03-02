@@ -45,7 +45,7 @@ const Education = ({ educationRef, isLargeScreen }) => {
           />
 
           <div className="relative" style={{ zIndex: 3 }}>
-            <SectionHeading text="On the Wall" subtitle="Education" />
+            <SectionHeading text="On the Wall" subtitle="education background" />
           </div>
 
           <div

@@ -109,7 +109,7 @@ const Experience = ({ experienceRef }) => {
         />
 
         <div className="relative" style={{ zIndex: 3 }}>
-          <SectionHeading text="The Study" subtitle="Professional Experience" />
+          <SectionHeading text="The Study" subtitle="professional experiences" />
 
           {/* ─── DESKTOP: Two-page book spread ─── */}
           <div className="hidden md:block mt-10">
