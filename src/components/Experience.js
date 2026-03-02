@@ -384,11 +384,11 @@ const Experience = ({ experienceRef }) => {
               )}
 
               {/* Scrollable: achievements */}
-              <div className="relative" style={{ maxHeight: "220px" }}>
+              <div className="relative overflow-hidden">
                 <div
                   ref={mobileScrollRef}
                   className="overflow-y-auto p-4"
-                  style={{ scrollbarWidth: "none" }}
+                  style={{ scrollbarWidth: "none", maxHeight: "220px" }}
                 >
                   {exp.achievements?.length > 0 ? (
                     <ul className="space-y-2">
