@@ -1,5 +1,5 @@
 import React from "react";
-import { Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 const Contact = ({ contactRef }) => {
   return (
     <section
@@ -28,16 +28,27 @@ const Contact = ({ contactRef }) => {
               <p className="text-xl">or give me a shout on social media.</p>
             </div>
 
-            {/* Connect with me button */}
-            <a
-              href="https://www.linkedin.com/in/vanshika-agrawal56/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText hover:opacity-90 font-medium rounded-lg transition-colors mt-4 theme-transition"
-            >
-              <Linkedin className="w-5 h-5" />
-              <span>Connect with me</span>
-            </a>
+            {/* Connect with me buttons */}
+            <div className="inline-flex flex-wrap gap-3 mt-4">
+              <a
+                href="https://www.linkedin.com/in/vanshika-agrawal56/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText hover:opacity-90 font-medium rounded-lg transition-colors theme-transition"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span>Connect with me</span>
+              </a>
+              <a
+                href="https://github.com/vanshika5605"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-lightPrimaryColor text-lightText dark:bg-darkPrimaryColor dark:text-darkText hover:opacity-90 font-medium rounded-lg transition-colors theme-transition"
+              >
+                <Github className="w-5 h-5" />
+                <span>GitHub</span>
+              </a>
+            </div>
           </div>
 
           {/* Decorative Circle with Avatar */}
